@@ -202,7 +202,7 @@ const Footer: React.FC = () => {
 
                 {/* Footer Bottom Bar */}
                 <div className="tw-border-t tw-border-gray-700 tw-mt-16 tw-pt-8 tw-pb-4 tw-text-center tw-text-gray-400 tw-text-sm">
-                    Copyright &copy;2024 <a href='/about-us' className='text-white'>BackedByQuantum</a>. All rights reserved.
+                    Copyright &copy;2026 <a href='/about-us' className='text-white'>BackedByQuantum</a>. All rights reserved.
                 </div>
             </footer>
         </>
