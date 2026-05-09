@@ -4,7 +4,7 @@ import GoBackButton from "@/components/BackButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Chooice Identity 02 || Backedby Quantum crypto app",
+  title: "Choice Identity 02 || Backedby Quantum crypto app",
   description: "Backedby Quantum crypto app",
 };
 

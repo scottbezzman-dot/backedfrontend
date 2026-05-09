@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
         // { name: 'TikTok', icon: FaTiktok, href: 'https://tiktok.com' },
         // { name: 'Facebook', icon: FaFacebookF, href: 'https://facebook.com' },
         // { name: 'X (Twitter)', icon: SiX, href: 'https://twitter.com' }, // Using SiX for X.com
-        { name: 'Telegram', icon: FaTelegramPlane, href: 'https://t.me/backedbyquantumsuppport' },
+        // { name: 'Telegram', icon: FaTelegramPlane, href: 'https://t.me/backedbyquantumsuppport' },
     ];
 
     // Email validation function
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
                         </p>
 
                         {/* Social Media Icons with circular background and hover effects */}
-                        <div className="tw-flex tw-items-center tw-gap-4">
+                        {/* <div className="tw-flex tw-items-center tw-gap-4">
                             {socialPlatforms.map((platform) => (
                                 <a
                                     key={platform.name}
@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
                                     <platform.icon className="tw-h-5 tw-w-5" />
                                 </a>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* 2. Quick Links Column (Column 2) */}

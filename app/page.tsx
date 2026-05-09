@@ -16,7 +16,7 @@ export default function page() {
       {/* <PreviewPage /> */}
       {/* <WelcomePage /> */}
       <MainPage />
-      <Script id="tawk-to" strategy="afterInteractive">
+      {/* <Script id="tawk-to" strategy="afterInteractive">
         {`
           var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
           (function(){
@@ -28,7 +28,7 @@ export default function page() {
           s0.parentNode.insertBefore(s1,s0);
           })();
         `}
-      </Script>
+      </Script> */}
 
     </>
   );
