@@ -1,19 +1,15 @@
-import withPWA from "next-pwa";
+import type { NextConfig } from 'next'
 
-const withPWA2 = withPWA({
-  dest: "public",
-  register: true, // Automatically register the service worker
-  skipWaiting: true, // Automatically take control of the page when the service worker is updated
-});
+const nextConfig: NextConfig = {
+    images: {
+        unoptimized: true,
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: '**',
+            },
+        ],
+    }
+}
 
-module.exports = withPWA2({
-  images: {
-    unoptimized: true,
-  },
-  sassOptions: {
-    api: "modern-compiler",
-  },
-  typescript: {
-    ignoreBuildErrors: true, // ✅ Ignore type errors during build
-  },
-});
+export default nextConfig
