@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import { AxiosError } from "axios";
 import apiClient, { setAuthToken } from "@/lib/axios-config";
 import { toast } from "react-toastify";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "@/lib/firebaseClient";
 
 
 export default function Login() {
@@ -19,6 +21,7 @@ export default function Login() {
   });
 
   const [showPass, setShowPass] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -54,6 +57,32 @@ export default function Login() {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    setIsGoogleLoading(true);
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken();
+
+      const response = await apiClient.post("/api/auth/firebase/google", { idToken });
+
+      if (response.data?.status_code && response.data?.token) {
+        setAuthToken(response.data.token);
+        toast.success("Login successfully");
+        router.push("/home");
+        return;
+      }
+
+      toast.error(response.data?.msg || "Google login failed");
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Google login failed. Please try again.";
+      toast.error(message);
+    } finally {
+      setIsGoogleLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="header fixed-top bg-surface">
@@ -67,15 +96,20 @@ export default function Login() {
             <h2 className="text-center">Login Backedby Quantum</h2>
             <ul className="mt-40 socials-login">
               <li className="mt-12">
-                <Link href={`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/auth/google`} className="tf-btn md social dark">
+                <button
+                  type="button"
+                  onClick={handleGoogleLogin}
+                  disabled={isGoogleLoading}
+                  className="tf-btn md social dark"
+                >
                   <Image
                     alt="img"
                     src="/images/logo/google.jpg"
                     width={21}
                     height={20}
                   />
-                  Continue with Google
-                </Link>
+                  {isGoogleLoading ? "Signing in..." : "Continue with Google"}
+                </button>
               </li>
               
             </ul>

@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
         // { name: 'TikTok', icon: FaTiktok, href: 'https://tiktok.com' },
         // { name: 'Facebook', icon: FaFacebookF, href: 'https://facebook.com' },
         // { name: 'X (Twitter)', icon: SiX, href: 'https://twitter.com' }, // Using SiX for X.com
-        // { name: 'Telegram', icon: FaTelegramPlane, href: 'https://t.me/backedbyquantumsuppport' },
+        { name: 'Telegram', icon: FaTelegramPlane, href: 'https://t.me/backedbyquantumsuppport' },
     ];
 
     // Email validation function
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
                         </p>
 
                         {/* Social Media Icons with circular background and hover effects */}
-                        {/* <div className="tw-flex tw-items-center tw-gap-4">
+                        <div className="tw-flex tw-items-center tw-gap-4">
                             {socialPlatforms.map((platform) => (
                                 <a
                                     key={platform.name}
@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
                                     <platform.icon className="tw-h-5 tw-w-5" />
                                 </a>
                             ))}
-                        </div> */}
+                        </div>
                     </div>
 
                     {/* 2. Quick Links Column (Column 2) */}
@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
                         <div className="tw-flex tw-flex-row tw-justify-center tw-gap-16">
                             <ul className="tw-space-y-4 tw-list-none"> {/* tw-list-none to remove default bullets */}
                                 {quickLinksCol1.map((link) => (
-                                    <li>
+                                    <li key={link}>
                                         <a
                                             href={link === 'About US' ? '/about-us' : '/start-boarding'}
                                             className="tw-hover:tw-text-white tw-transition-colors tw-duration-300 tw-text-sm tw-tracking-wider"
@@ -202,7 +202,7 @@ const Footer: React.FC = () => {
 
                 {/* Footer Bottom Bar */}
                 <div className="tw-border-t tw-border-gray-700 tw-mt-16 tw-pt-8 tw-pb-4 tw-text-center tw-text-gray-400 tw-text-sm">
-                    Copyright &copy;2026 <a href='/about-us' className='text-white'>BackedByQuantum</a>. All rights reserved.
+                    Copyright &copy;2024 <a href='/about-us' className='text-white'>BackedByQuantum</a>. All rights reserved.
                 </div>
             </footer>
         </>
