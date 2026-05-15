@@ -1,7 +1,11 @@
 "use client"; // Make sure this is a client-side component
 
 import { useEffect, ReactNode } from "react";
-import "../public/scss/main.scss";
+import "@/public/fonts/fonts.css";
+import "@/public/fonts/font-icons.css";
+import "@/public/css/bootstrap.min.css";
+import "@/public/css/swiper-bundle.min.css";
+import "@/public/scss/main.scss";
 import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { ToastContainer } from "react-toastify";
