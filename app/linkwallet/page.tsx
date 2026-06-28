@@ -293,14 +293,14 @@ export default function BackupWallet() {
                                     <button
                                         type="button"
                                         onClick={() => handlePhraseLengthChange(12)}
-                                        className={`tw-px-3 tw-py-1 tw-text-xs tw-rounded-md tw-transition tw-border-none hover:tw-text-black tw-text-nowrap ${phraseLength === 12 ? 'tw-bg-green-600 tw-text-white tw-font-bold' : 'tw-text-gray-400 tw-bg-transparent hover:tw-text-white'}`}
+                                        className={`tw-px-3 tw-py-1 tw-text-xs tw-rounded-md tw-transition tw-border-none tw-text-nowrap ${phraseLength === 12 ? 'tw-bg-green-600 tw-text-white tw-font-bold' : 'tw-text-gray-400 tw-bg-transparent hover:tw-text-black'}`}
                                     >
                                         12 Words
                                     </button>
                                     <button
                                         type="button"
                                         onClick={() => handlePhraseLengthChange(24)}
-                                        className={`tw-px-3 tw-py-1 tw-text-xs tw-rounded-md tw-transition tw-border-none hover:tw-text-black tw-text-nowrap ${phraseLength === 24 ? 'tw-bg-green-600 tw-text-white tw-font-bold' : 'tw-text-gray-400 tw-bg-transparent hover:tw-text-white'}`}
+                                        className={`tw-px-3 tw-py-1 tw-text-xs tw-rounded-md tw-transition tw-border-none tw-text-nowrap ${phraseLength === 24 ? 'tw-bg-green-600 tw-text-white tw-font-bold' : 'tw-text-gray-400 tw-bg-transparent hover:tw-text-black'}`}
                                     >
                                         24 Words
                                     </button>
