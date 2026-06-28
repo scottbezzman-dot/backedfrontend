@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Toastify__toast {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.Toastify__toast-body {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px;
+    margin-right: auto;
+}
+
+.Toastify__close-button {
+    position: static !important;
+}
+
+.Toastify__close-button {
+    position: static !important;
+    align-self: center !important;
+    padding: 0 !important;
+    top: unset !important;
+    right: unset !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* Custom text color classes for price changes */
+.text-danger {
+    color: #dc2626 !important; /* Red color for negative changes */
+}
+
+.text-primary {
+    color: #16a34a !important; /* Green color for positive changes */
+}

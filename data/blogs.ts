@@ -1,0 +1,51 @@
+export const blogPosts = [
+  {
+    id: 1,
+    src: "/images/blog/blog1.jpg",
+    alt: "img",
+    author: "Daria Morgen",
+    date: "Dec 21, 2023",
+    title: "The Nightmare Before Christmas - Bomb Threats and Bitcoin",
+  },
+  {
+    id: 2,
+    src: "/images/blog/blog2.jpg",
+    alt: "img",
+    author: "Jane Cooper",
+    date: "May 19, 2023",
+    title: "The Crypto.com App Introduces Trusted Device Management",
+  },
+  {
+    id: 3,
+    src: "/images/blog/blog3.jpg",
+    alt: "img",
+    author: "Wade Warren",
+    date: "June 9, 2023",
+    title: "Cybersecurity Predictions 2023 – How did we do?",
+  },
+  {
+    id: 4,
+    src: "/images/blog/blog4.jpg",
+    alt: "img",
+    author: "Esther Howard",
+    date: "Jan 27, 2023",
+    title:
+      "Cryptocurrency News: Building in Resiliency and International Co-Operation",
+  },
+  {
+    id: 5,
+    src: "/images/blog/blog5.jpg",
+    alt: "img",
+    author: "Leslie Alex",
+    date: "Apr 19, 2023",
+    title: "Blockchain, cryptocurrencies, and mining",
+  },
+  {
+    id: 6,
+    src: "/images/blog/blog6.jpg",
+    alt: "img",
+    author: "Jenny Wilson",
+    date: "May 21, 2023",
+    title: "Security Predictions 2023: how are we doing so far?",
+  },
+];
