@@ -3,8 +3,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Camera success || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Camera success || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 const Page: React.FC = () => {

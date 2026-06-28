@@ -127,7 +127,7 @@ export default function MyWallet() {
                 Send
               </Link>
             </li>
-             <li>
+            <li>
               <Link
                 href={`/swap`}
                 className="tf-list-item d-flex flex-column gap-8 align-items-center"
@@ -149,7 +149,7 @@ export default function MyWallet() {
                 Backup
               </Link>
             </li> */}
-            
+
           </ul>
           <ul className="mt-16 grid-4 m--16">
             {/* <li>
@@ -228,7 +228,7 @@ export default function MyWallet() {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content modal-sm">
               <div className="p-16 line-bt text-center">
-                <h4>“QFS” Would Like To Send You Notifications</h4>
+                <h4>“Quantum Fianancial System” Would Like To Send You Notifications</h4>
                 <p className="mt-8 text-large">
                   Notifications may include alerts, sounds, and icon badges.
                   These can be configured in Settings.
@@ -295,20 +295,20 @@ export default function MyWallet() {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content rounded-lg shadow-lg border-0 text-center" style={{padding:"24px"}}>
+            <div className="modal-content rounded-lg shadow-lg border-0 text-center" style={{ padding: "24px" }}>
               <AiOutlineCloseCircle className="mx-auto text-red-500" size={80} />
               <h4>Action Disabled</h4>
               <p className="mt-8 text-large">
                 This Action is disabled Coming Soon.
               </p>
-              <div style={{display:'inline-flex' ,marginTop:'20px', width: 'auto', textAlign: 'center', justifyContent:'center'}}>
-              <button
-                type="button"
-                data-bs-dismiss="modal"
-                style={{width: 'auto'}}
-              >
-                Okay
-              </button>
+              <div style={{ display: 'inline-flex', marginTop: '20px', width: 'auto', textAlign: 'center', justifyContent: 'center' }}>
+                <button
+                  type="button"
+                  data-bs-dismiss="modal"
+                  style={{ width: 'auto' }}
+                >
+                  Okay
+                </button>
               </div>
             </div>
           </div>

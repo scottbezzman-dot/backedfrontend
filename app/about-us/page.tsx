@@ -4,11 +4,11 @@ import '../../app/globals.css';
 export default function AboutUs() {
     return (
         <>
-            <div className="bg-[#11150f] tf-container" style={{paddingBottom:"100px"}}>
+            <div className="bg-[#11150f] tf-container" style={{ paddingBottom: "100px" }}>
                 <h2 className="text-lg font-semibold text-white mb-8" style={{ paddingTop: "24px" }}>About Us</h2>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
                     <h2 className="font-semibold text-white mb-1" style={{ paddingTop: "24px", fontSize: "15px" }}>
-                        About this QFS
+                        About this Quantum Fianancial System
                     </h2>
                     <p style={{ color: "white" }}>
                         backedweb3shield.org Web App is a decentralised decentralisationned to revolutionise the world of finance by offering users a range of innovative services. The Technology is built on the principles of decentralisation and security, aimed to replace the corrupt central banking system and bring financial freedom to everyone, including those in rural and unbanked regions. It has rapidly gained traction among global freedom lovers, who see it as a powerful tool for economic emancipation.
@@ -24,10 +24,10 @@ export default function AboutUs() {
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
                     <h2 className="font-semibold text-white mb-1" style={{ fontSize: "15px" }}>
-                        QFS Security
+                        Quantum Fianancial System Security
                     </h2>
                     <p style={{ color: "white" }}>
-                        backedweb3shield.org App utilises Quantum Financial System (QFS) security, an advanced cryptographic technology that ensures the safety and privacy of users' assets. The QFS security model provides robust protection against hacks, data breaches, and other malicious activities, giving users peace of mind as they manage their crypto holdings.
+                        backedweb3shield.org App utilises Quantum Financial System (Quantum Fianancial System) security, an advanced cryptographic technology that ensures the safety and privacy of users' assets. The Quantum Fianancial System security model provides robust protection against hacks, data breaches, and other malicious activities, giving users peace of mind as they manage their crypto holdings.
                     </p>
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>

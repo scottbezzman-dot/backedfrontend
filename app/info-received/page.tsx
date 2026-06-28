@@ -5,8 +5,8 @@ import GoBackButton from "@/components/BackButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Info Recievied || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Info Recievied || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 const Page: React.FC = () => {
@@ -78,7 +78,7 @@ const Page: React.FC = () => {
             </div>
             <h2 className="mt-40 text-center">Information received.</h2>
             <p className="mt-12 text-center text-large">
-              Your information has been confirmed, welcome to QFS!
+              Your information has been confirmed, welcome to Quantum Fianancial System!
             </p>
             <Link href={`/log-in`} className="tf-btn primary lg mt-40">
               Done

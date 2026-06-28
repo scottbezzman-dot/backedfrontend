@@ -6,8 +6,8 @@ import MainPage from "@/components/mainPage/MainPage";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Welcome || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Welcome || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 export default function page() {

@@ -41,14 +41,14 @@ const HeroHeader: React.FC = () => {
                                 className="tw-text-[24px] sm:tw-text-6xl md:tw-text-6xl lg:tw-text-7xl xl:tw-text-7xl 
              tw-font-bold  tw-leading-tight tw-tracking-tight tw-text-center tw-text-white "
                             >
-                                Trusted Secure <span className="tw-text-[rgb(90,223,137)]">QFS</span> Crypto Exchange
+                                Trusted Secure <span className="tw-text-[rgb(90,223,137)]">Quantum Fianancial System</span> Crypto Exchange
                             </h1>
 
                         </div>
                         {/* Context paragraph */}
                         <div className="tw-mb-10 sm:tw-mb-12 md:tw-mb-16 lg:tw-mb-20"> {/* Responsive bottom margin for paragraph */}
                             <p className="tw-text-base sm:tw-text-lg md:tw-text-xl tw-text-white tw-max-w-2xl tw-mx-auto">
-                                Experience peace of mind with our trusted and secure QFS crypto exchange. Safeguard your assets
+                                Experience peace of mind with our trusted and secure Quantum Fianancial System crypto exchange. Safeguard your assets
                                 and embrace seamless transactions in the decentralized world. Join us for a worry-free trading
                             </p>
                         </div>
@@ -104,11 +104,11 @@ const HeroHeader: React.FC = () => {
                 {/* The original HTML had multiple SSR variants for this image; a single responsive img tag is usually sufficient with modern img attributes */}
                 <div className="tw-relative tw-w-full tw-max-w-6xl tw-mx-auto tw-z-0 tw-mt-12 md:tw-mt-0"> {/* Relative for potential internal absolute positioning, max-w to control size, mx-auto to center, z-0 to stack correctly */}
                     <div className='tw-relative tw-w-full tw-h-auto'>
-                      <Image 
-                        src={cryptoDevices}
-                        alt='statistics dashboard desktop'
-                        style={{width: '100%', height: 'auto'}}
-                      />
+                        <Image
+                            src={cryptoDevices}
+                            alt='statistics dashboard desktop'
+                            style={{ width: '100%', height: 'auto' }}
+                        />
                     </div>
                 </div>
 
@@ -164,11 +164,11 @@ const HeroHeader: React.FC = () => {
                         alt="bitcoin T icon"
                         className="tw-w-full tw-h-full tw-object-contain"
                     /> */}
-                        <Image 
-                            src={tetherLogo}
-                            alt='tether'
-                            style={{width: '100%', height: 'auto', objectFit: 'contain'}}
-                        />
+                    <Image
+                        src={tetherLogo}
+                        alt='tether'
+                        style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                    />
                 </div>
 
                 {/* Bitcoin T (small, bottom-right) */}
@@ -186,11 +186,11 @@ const HeroHeader: React.FC = () => {
                 <div className="tw-absolute tw-top-[40%] tw-left-[7%] /* Adjusted from original bottom-left for layout variety */
                         tw-w-16 tw-h-16 md:tw-w-20 md:tw-h-20 lg:tw-w-24 lg:tw-h-24
                         tw-animate-spin-slow tw-hidden md:tw-block" style={{ animationDelay: '0.2s' }}>
-                        <Image 
-                            src={xrpLogo}
-                            alt='xrp'
-                            style={{width: '100%', height: '100%', objectFit: 'contain'}}
-                        />
+                    <Image
+                        src={xrpLogo}
+                        alt='xrp'
+                        style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    />
                 </div>
             </div>
         </section>

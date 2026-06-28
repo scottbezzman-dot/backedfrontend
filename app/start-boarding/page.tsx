@@ -4,8 +4,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Welcome || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Welcome || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 const WelcomePage: React.FC = () => {
@@ -77,7 +77,7 @@ const WelcomePage: React.FC = () => {
             </div>
             <div className="content mb-32">
               <h2 className="text-center">
-                Welcome to QFS Crypto Wallet app
+                Welcome to Quantum Fianancial System Crypto Wallet app
               </h2>
               <p className="mt-8 text-center text-large">
                 Discover the world of cryptocurrencies and manage your assets
@@ -91,7 +91,7 @@ const WelcomePage: React.FC = () => {
                 <Link
                   href='/about-us'
                   className="text-white"
-                  // data-bs-toggle="modal"
+                // data-bs-toggle="modal"
                 >
                   {" "}
                   About Us

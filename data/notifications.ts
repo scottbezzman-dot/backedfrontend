@@ -1,7 +1,7 @@
 export const notifications = [
   {
     content:
-      "Welcome to QFS! Your journey to smarter trading starts here.",
+      "Welcome to Quantum Fianancial System! Your journey to smarter trading starts here.",
     // time: "5 minutes ago",
     hasIcon: true,
     additionalClasses: "",
@@ -16,7 +16,7 @@ export const notifications = [
     isSecondary: false,
   },
   {
-    content: "Start investing today and grow your portfolio with QFS.",
+    content: "Start investing today and grow your portfolio with Quantum Fianancial System.",
     link: '/deposit',
     // time: "5 minutes ago",
     hasIcon: true,
@@ -24,7 +24,7 @@ export const notifications = [
     isSecondary: false,
   },
   // {
-  //   content: "QFS to adjust components of several indexes",
+  //   content: "Quantum Fianancial System to adjust components of several indexes",
   //   time: "1 day ago",
   //   hasIcon: false,
   //   additionalClasses: "mt-12",
@@ -38,7 +38,7 @@ export const notifications = [
   //   isSecondary: true,
   // },
   // {
-  //   content: "QFS to adjust components of several indexes",
+  //   content: "Quantum Fianancial System to adjust components of several indexes",
   //   time: "1 day ago",
   //   hasIcon: false,
   //   additionalClasses: "mt-12",

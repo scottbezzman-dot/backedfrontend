@@ -23,17 +23,17 @@ export default function Register() {
     country_code: "",
   });
 
-  const handleSubmit = async (e : any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-  // alert("Passwords do not match");
+      // alert("Passwords do not match");
       toast.success('Passwords do not match')
       return;
     }
 
     try {
-  const response = await apiClient.post('/api/auth/register', {
+      const response = await apiClient.post('/api/auth/register', {
         username: formData.username,
         name: formData.name,
         email: formData.email,
@@ -41,7 +41,7 @@ export default function Register() {
         phone: formData.phone,
         country_code: formData.country_code,
       });
-      console.log("Response",response);
+      console.log("Response", response);
 
       if (response.data.status_code) {
         router.push("/log-in");
@@ -50,8 +50,8 @@ export default function Register() {
         toast.error(response.data.msg)
       }
     } catch (err) {
-       const error = err as AxiosError<{ msg: string }>;
-       toast.error(error.response?.data?.msg)
+      const error = err as AxiosError<{ msg: string }>;
+      toast.error(error.response?.data?.msg)
     }
   };
 
@@ -65,7 +65,7 @@ export default function Register() {
       <div className="pt-45">
         <div className="tf-container">
           <form onSubmit={handleSubmit} className="mt-32 mb-16">
-            <h2 className="text-center">Register QFS</h2>
+            <h2 className="text-center">Register Quantum Fianancial System</h2>
 
             <fieldset className="mt-40">
               <label className="label-ip">

@@ -33,7 +33,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-  const response = await apiClient.post('/api/auth/login_with_password', {
+      const response = await apiClient.post('/api/auth/login_with_password', {
         email: formData.email,
         password: formData.password,
       });
@@ -41,7 +41,7 @@ export default function Login() {
       console.log("✅ API Response:", response.data);
 
       if (response.data.status_code) {
-  // alert("✅ Login successful!");
+        // alert("✅ Login successful!");
         toast.success('Login successfully');
         // ✅ Save token using the helper function
         setAuthToken(response.data.token);
@@ -93,7 +93,7 @@ export default function Login() {
       <div className="pt-45 pb-20">
         <div className="tf-container">
           <div className="mt-32">
-            <h2 className="text-center">Login QFS</h2>
+            <h2 className="text-center">Login Quantum Fianancial System</h2>
             <ul className="mt-40 socials-login">
               <li className="mt-12">
                 <button
@@ -111,7 +111,7 @@ export default function Login() {
                   {isGoogleLoading ? "Signing in..." : "Continue with Google"}
                 </button>
               </li>
-              
+
             </ul>
           </div>
 

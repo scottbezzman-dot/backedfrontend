@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import apiClient from "@/lib/axios-config";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-type CardColor = "black" | "silver" | "gold" ;
+type CardColor = "black" | "silver" | "gold";
 
 const cardStyles: Record<CardColor, {
   background: string;
@@ -284,11 +284,11 @@ export default function UserInfo() {
                       <div style={{ fontWeight: "bold", marginBottom: "6px" }}>
                         BackedByQuantum
                       </div>
-                      <div style={{ fontSize: "12px", fontWeight:600, color: selectedColor === "silver" ? "#111" : "#fff", }}>
+                      <div style={{ fontSize: "12px", fontWeight: 600, color: selectedColor === "silver" ? "#111" : "#fff", }}>
                         Web3-QUANTUM FINANCIAL SYSTEM
                       </div>
                     </div>
-                    <div style={{ fontWeight: "bold" }}>QFS Card</div>
+                    <div style={{ fontWeight: "bold" }}>Quantum Fianancial System Card</div>
                   </div>
 
                   <div
@@ -485,7 +485,7 @@ export default function UserInfo() {
                       checked={agree}
                       onChange={(e) => setAgree(e.target.checked)}
                     />{" "}
-                    I accept QFS Shipping terms and conditions
+                    I accept Quantum Fianancial System Shipping terms and conditions
                   </div>
 
                   <button
@@ -689,7 +689,7 @@ export default function UserInfo() {
             href="#"
             className="pt-12 pb-12 mt-4 d-flex justify-content-between align-items-center"
           >
-            <h5>About QFS</h5>
+            <h5>About Quantum Fianancial System</h5>
             <span className="arr-right">
               <i className="icon-arr-right" />
             </span>

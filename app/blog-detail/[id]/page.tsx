@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import { blogPosts } from "@/data/blogs";
 
 export const metadata: Metadata = {
-  title: "Blog Details || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Blog Details || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 export default async function Page({

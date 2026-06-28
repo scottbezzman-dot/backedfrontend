@@ -4,8 +4,8 @@ import GoBackButton from "@/components/BackButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Verification Advanced || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Verification Advanced || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 const Page: React.FC = () => {

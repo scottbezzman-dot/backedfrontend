@@ -4,8 +4,8 @@ import RedirectComponent from "@/components/RedirectComponent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Face Id || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Face Id || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 const Page: React.FC = () => {

@@ -4,8 +4,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Boarding 02 || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Boarding 02 || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 const Page: React.FC = () => {
@@ -77,10 +77,10 @@ const Page: React.FC = () => {
             </div>
             <div className="content mb-32">
               <h2 className="text-center">
-                A Fantastic Experience with QFS!
+                A Fantastic Experience with Quantum Fianancial System!
               </h2>
               <p className="mt-8 text-center text-large">
-                Explore the diverse features of QFS. Send and receive funds,
+                Explore the diverse features of Quantum Fianancial System. Send and receive funds,
                 track transaction history, create new wallets, and much more.
               </p>
               <Link href={`/log-in`} className="tf-btn primary md mt-40">
@@ -91,7 +91,7 @@ const Page: React.FC = () => {
                 <Link
                   href='/about-us'
                   className="text-white"
-                  // data-bs-toggle="modal"
+                // data-bs-toggle="modal"
                 >
                   {" "}
                   About Us

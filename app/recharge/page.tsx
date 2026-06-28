@@ -4,8 +4,8 @@ import Recharge from "@/components/Recharge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Recharge || QFS crypto app",
-  description: "QFS crypto app",
+  title: "Recharge || Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System crypto app",
 };
 
 const Page: React.FC = () => {

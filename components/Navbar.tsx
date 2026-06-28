@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
                 <a href="/" className="tw-flex tw-items-center">
                     {/* <img
                         src=''
-                        alt="QFS Logo"
+                        alt="Quantum Fianancial System Logo"
                         className="h-10 sm:h-12"
                     /> */}
                     <Image
