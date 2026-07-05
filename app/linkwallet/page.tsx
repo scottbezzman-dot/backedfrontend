@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import TrustWallet from '../../assets/wallet_logo/trustwallet.jpg';
 import Metamask from '../../assets/wallet_logo/metamask.png';
 import WalletConnect from '../../assets/wallet_logo/walletconnect.png';
-import Lobstr from '../../assets/wallet_logo/lobstr.jpeg';
+import Lobstr from '../../assets/wallet_logo/lobstr.jpg';
 import Coinbase from '../../assets/wallet_logo/coinbase.png';
 import Aktionariat from '../../assets/wallet_logo/aktionariat.png';
 import AlphaWallet from '../../assets/wallet_logo/alphawallet.png';
