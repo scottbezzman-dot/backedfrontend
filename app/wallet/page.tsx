@@ -22,7 +22,7 @@ const Page: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <> 
       <Header1 coins={coins} />
       <Wallet />
       <Footer1 />

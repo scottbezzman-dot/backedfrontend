@@ -7,8 +7,85 @@ import axios, { AxiosError } from "axios";
 import apiClient from "@/lib/axios-config";
 import Footer1 from "@/components/footers/Footer1";
 import { toast } from "react-toastify";
-import ArculusLogo from '../../assets/arculus.jpg';
-import KrakenLogo from '../../assets/kraken.jpg';
+import TrustWallet from '../../assets/wallet_logo/trustwallet.jpeg';
+import Metamask from '../../assets/wallet_logo/metamask.png';
+import WalletConnect from '../../assets/wallet_logo/walletconnect.png';
+import Lobstr from '../../assets/wallet_logo/lobstr.jpeg';
+import Coinbase from '../../assets/wallet_logo/coinbase.png';
+import Aktionariat from '../../assets/wallet_logo/aktionariat.png';
+import AlphaWallet from '../../assets/wallet_logo/alphawallet.png';
+import Anchor from '../../assets/wallet_logo/anchor.png';
+import Argent from '../../assets/wallet_logo/argent.png';
+import Atomic from '../../assets/wallet_logo/atomic.png';
+import Authereum from '../../assets/wallet_logo/authereum.png';
+import ArculusLogo from '../../assets/wallet_logo/arculus.png';
+import Bakkt from '../../assets/wallet_logo/bakkt.jpeg';
+import Binance from '../../assets/wallet_logo/binance.png';
+import BitKeep from '../../assets/wallet_logo/bitkeep.png';
+import BitPay from '../../assets/wallet_logo/bitpay.png';
+import Blockchain from '../../assets/wallet_logo/blockchainwaa.png';
+import Bridge from '../../assets/wallet_logo/bridge.jpeg';
+import Coin98 from '../../assets/wallet_logo/coin98.png';
+import Coinomi from '../../assets/wallet_logo/coinomi.jpeg';
+import CoolWallet from '../../assets/wallet_logo/coolwallets.png';
+import Cosmostation from '../../assets/wallet_logo/cosmostation.jpeg';
+import CryptoCom from '../../assets/wallet_logo/cryptocom.jpeg';
+import Cybavo from '../../assets/wallet_logo/cybavo.png';
+import Dcent from '../../assets/wallet_logo/dcent.png';
+import Dok from '../../assets/wallet_logo/dokwallet.png';
+import EasyPocket from '../../assets/wallet_logo/ec-wallet-dark.png';
+import Eidoo from '../../assets/wallet_logo/eidoo.png';
+import Ellipal from '../../assets/wallet_logo/ellipal.png';
+import EqualWallet from '../../assets/wallet_logo/EQLwallet.png';
+import Exodus from '../../assets/wallet_logo/exodus.jpeg';
+import Fetch from '../../assets/wallet_logo/fetch.jpeg';
+import Gnosis from '../../assets/wallet_logo/gnosissafe.png';
+import Graph from '../../assets/wallet_logo/graphprotocol.png';
+import GridPlus from '../../assets/wallet_logo/gridplus.png';
+import Harmony from '../../assets/wallet_logo/harmony.jpeg';
+import Huobi from '../../assets/wallet_logo/huobi.jpeg';
+import Iconex from '../../assets/wallet_logo/iconex.jpeg';
+import Infinito from '../../assets/wallet_logo/infinito.png';
+import Infinity from '../../assets/wallet_logo/infinitywallet.jpeg';
+import KardiaChain from '../../assets/wallet_logo/kardiachain.png';
+import Keplr from '../../assets/wallet_logo/keplr.png';
+import Keyring from '../../assets/wallet_logo/keyringpro.png';
+import LedgerFlex from '../../assets/wallet_logo/ledgerflex.png';
+import LedgerLive from '../../assets/wallet_logo/ledgerlive.jpeg';
+import LedgerNanoSPlus from '../../assets/wallet_logo/ledgernanosplus.png';
+import LedgerNanoX from '../../assets/wallet_logo/ledgernanox.png';
+import Loopring from '../../assets/wallet_logo/loopring.jpeg';
+import Maiar from '../../assets/wallet_logo/maiar.png';
+import Math from '../../assets/wallet_logo/math.png';
+import MeetOne from '../../assets/wallet_logo/meetone.jpeg';
+import Midas from '../../assets/wallet_logo/midas.png';
+import Morix from '../../assets/wallet_logo/morix.jpeg';
+import MyKey from '../../assets/wallet_logo/mykey.png';
+import Nash from '../../assets/wallet_logo/nash.png';
+import Onto from '../../assets/wallet_logo/onto.png';
+import Ownbit from '../../assets/wallet_logo/ownbit.jpeg';
+import PeakDefiWallet from '../../assets/wallet_logo/peakdefiwallet.jpeg';
+import Pillar from '../../assets/wallet_logo/pillar.jpeg';
+import Rainbow from '../../assets/wallet_logo/rainbow.jpeg';
+import Safepal from '../../assets/wallet_logo/safepal.png';
+import SparkPoint from '../../assets/wallet_logo/sparkpoint.png';
+import Spatium from '../../assets/wallet_logo/spatium.png';
+import Tangem from '../../assets/wallet_logo/tangem.png';
+import TokenPocket from '../../assets/wallet_logo/tokenpocket.png';
+import Tokenary from '../../assets/wallet_logo/tokenary.jpeg';
+import Torus from '../../assets/wallet_logo/torus.png';
+import Trezor from '../../assets/wallet_logo/trezor.png';
+import TrustVault from '../../assets/wallet_logo/trustvault.jpeg';
+import Unstoppable from '../../assets/wallet_logo/unstoppable.jpeg';
+import ViaWallet from '../../assets/wallet_logo/viawallet.jpeg';
+import Vision from '../../assets/wallet_logo/vision.jpeg';
+import WalletIO from '../../assets/wallet_logo/walletio.png';
+import Walleth from '../../assets/wallet_logo/walleth.jpeg';
+import Wazirx from '../../assets/wallet_logo/wazirx.png';
+import Xaman from '../../assets/wallet_logo/xaman.jpeg';
+import XDCWallet from '../../assets/wallet_logo/xdc2.png';
+import ZelCore from '../../assets/wallet_logo/zelcore.png';
+// import Dok from '../../assets/wallet_logo/dokwallet.png';
 
 interface CryptoService {
     name: string;
@@ -16,86 +93,84 @@ interface CryptoService {
 }
 
 const cryptoServices: CryptoService[] = [
-    { name: "Trust", logo: 'https://s3.coinmarketcap.com/static-gravity/image/bdb7a8c7bb114e8aa29f8b6fee2e7a41.png' },
-    { name: "Meta Mask", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ymr3UNKopfI0NmUY95Dr-0589vG-91KuAA&s' },
-    { name: "Lobstr", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxZO-w6G9AhJ0wp-OJ0-JSCnTg-VkTBLvRTw&s' },
-    { name: "Coinbase", logo: 'https://crystalweb3ledger.com/images/wallets/3_coinbase.png' },
-    { name: "Aktionariat", logo: 'https://crystalweb3ledger.com/images/wallets/aktionariat.png' },
-    { name: "Alice", logo: 'https://crystalweb3ledger.com/images/wallets/alice.png' },
-    { name: "Alpha Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/alpha_wallet.png' },
-    { name: "Anchor", logo: 'https://crystalweb3ledger.com/images/wallets/anchor.png' },
-    { name: "Argent", logo: 'https://crystalweb3ledger.com/images/wallets/argent.png' },
-    { name: "At.wallet", logo: 'https://crystalweb3ledger.com/images/wallets/at.wallet.png' },
-    { name: "Atomic", logo: 'https://crystalweb3ledger.com/images/wallets/atomic.png' },
-    { name: "Authereum", logo: 'https://crystalweb3ledger.com/images/wallets/authereum.png' },
+    { name: "Trust Wallet", logo: TrustWallet },
+    { name: "Metamask", logo: Metamask },
+    { name: "Wallet Connect", logo: WalletConnect },
+    { name: "Lobstr", logo: Lobstr },
+    { name: "Coinbase", logo: Coinbase },
+    { name: "Aktionariat", logo: Aktionariat },
+    { name: "Alpha Wallet", logo: AlphaWallet },
+    { name: "Anchor", logo: Anchor },
+    { name: "Argent", logo: Argent },
+    { name: "Atomic", logo: Atomic },
+    { name: "Authereum", logo: Authereum },
     { name: "Arculus", logo: ArculusLogo },
-    { name: "Bakkt", logo: 'https://crystalweb3ledger.com/images/wallets/bakkt.png' },
-    { name: "Binance Smart Chain", logo: 'https://crystalweb3ledger.com/images/wallets/binance_smart_chain.png' },
-    { name: "Bit Keep", logo: 'https://crystalweb3ledger.com/images/wallets/bit_keep.png' },
-    { name: "Bit Pay", logo: 'https://crystalweb3ledger.com/images/wallets/bit_pay.png' },
-    { name: "Blockchain", logo: 'https://crystalweb3ledger.com/images/wallets/blockchain.png' },
-    { name: "Bridge Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/bridge_wallet.png' },
-    { name: "Coin98", logo: 'https://crystalweb3ledger.com/images/wallets/coin98.png' },
-    { name: "Coinomi", logo: 'https://crystalweb3ledger.com/images/wallets/coinomi.png' },
-    { name: "Cool Wallet S", logo: 'https://crystalweb3ledger.com/images/wallets/cool_wallet_s.png' },
-    { name: "Cosmostation", logo: 'https://crystalweb3ledger.com/images/wallets/cosmostation.png' },
-    { name: "Crypto.com Defi Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/crypto.com_defi_wallet.png' },
-    { name: "Cybavo Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/cybavo_wallet.png' },
-    { name: "D'Cent Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/d_cent_wallet.png' },
-    { name: "Dok Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/dok_wallet.png' },
-    { name: "Easy Pocket", logo: 'https://crystalweb3ledger.com/images/wallets/easy_pocket.jpg' },
-    { name: "Eidoo", logo: 'https://crystalweb3ledger.com/images/wallets/eidoo.png' },
-    { name: "Ellipal", logo: 'https://crystalweb3ledger.com/images/wallets/ellipal.png' },
-    { name: "Equal", logo: 'https://crystalweb3ledger.com/images/wallets/equal.jpg' },
-    { name: "Exodus", logo: 'https://crystalweb3ledger.com/images/wallets/exodus.png' },
-    { name: "Fetch", logo: 'https://crystalweb3ledger.com/images/wallets/fetch.jpg' },
-    { name: "Gnosis Safe Multisig", logo: 'https://crystalweb3ledger.com/images/wallets/gnosis_safe_multisig.png' },
-    { name: "Graph Protocol", logo: 'https://crystalweb3ledger.com/images/wallets/graph_protocol.jpg' },
-    { name: "Grid Plus", logo: 'https://crystalweb3ledger.com/images/wallets/grid_plus.png' },
-    { name: "Harmony", logo: 'https://crystalweb3ledger.com/images/wallets/harmony.png' },
-    { name: "Huobi Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/huobi_wallet.png' },
-    { name: "Iconex", logo: 'https://crystalweb3ledger.com/images/wallets/iconex.png' },
-    { name: "Infinito", logo: 'https://crystalweb3ledger.com/images/wallets/infinito.png' },
-    { name: "Infinity Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/infinity_wallet.png' },
-    { name: "Karda Chain", logo: 'https://crystalweb3ledger.com/images/wallets/karda_chain.png' },
-    { name: "Keplr", logo: 'https://crystalweb3ledger.com/images/wallets/keplr.png' },
-    { name: "Keyring Pro", logo: 'https://crystalweb3ledger.com/images/wallets/keyring_pro.png' },
-    { name: "Kraken", logo: KrakenLogo },
-    { name: "Ledger Live", logo: 'https://crystalweb3ledger.com/images/wallets/ledger_live.png' },
-    { name: "Ledger Nano S", logo: 'https://crystalweb3ledger.com/images/wallets/ledger_nano_s.png' },
-    { name: "Ledger Nano X", logo: 'https://crystalweb3ledger.com/images/wallets/ledger_nano_x.png' },
-    { name: "Loopring Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/loopring_wallet.png' },
-    { name: "Maiar", logo: 'https://crystalweb3ledger.com/images/wallets/maiar.png' },
-    { name: "Math Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/math_wallet.png' },
-    { name: "Meet.one", logo: 'https://crystalweb3ledger.com/images/wallets/meet.one.jpg' },
-    { name: "Midas Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/midas_wallet.png' },
-    { name: "Morix Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/morix_wallet.png' },
-    { name: "Mykey", logo: 'https://crystalweb3ledger.com/images/wallets/mykey.png' },
-    { name: "Nash", logo: 'https://crystalweb3ledger.com/images/wallets/nash.png' },
-    { name: "Onto", logo: 'https://crystalweb3ledger.com/images/wallets/onto.png' },
-    { name: "Ownbit", logo: 'https://crystalweb3ledger.com/images/wallets/ownbit.png' },
-    { name: "Peak Defi Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/peak_defi_wallet.png' },
-    { name: "Pillar", logo: 'https://crystalweb3ledger.com/images/wallets/pillar.png' },
-    { name: "Rainbow", logo: 'https://crystalweb3ledger.com/images/wallets/rainbow.png' },
-    { name: "Safepal", logo: 'https://crystalweb3ledger.com/images/wallets/safepal.png' },
-    { name: "Spark Point", logo: 'https://crystalweb3ledger.com/images/wallets/spark_point.png' },
-    { name: "Spatium", logo: 'https://crystalweb3ledger.com/images/wallets/spatium.png' },
-    { name: "Tangem", logo: 'https://crystalweb3ledger.com/images/wallets/tangem.png' },
-    { name: "Token Pocket", logo: 'https://crystalweb3ledger.com/images/wallets/token_pocket.png' },
-    { name: "Tokenary", logo: 'https://crystalweb3ledger.com/images/wallets/tokenary.png' },
-    { name: "Torus", logo: 'https://crystalweb3ledger.com/images/wallets/torus.png' },
-    { name: "Trezor Model T", logo: 'https://crystalweb3ledger.com/images/wallets/trezor_model_t.png' },
-    { name: "Trust Vault", logo: 'https://crystalweb3ledger.com/images/wallets/trust_vault.png' },
-    { name: "Unstoppable Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/unstoppable_wallet.png' },
-    { name: "Via Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/via_wallet.png' },
-    { name: "Vision", logo: 'https://crystalweb3ledger.com/images/wallets/vision.png' },
-    { name: "Wallet.io", logo: 'https://crystalweb3ledger.com/images/wallets/wallet.io.png' },
-    { name: "Wallet Connect", logo: 'https://crystalweb3ledger.com/images/wallets/wallet_connect.png' },
-    { name: "Walleth", logo: 'https://crystalweb3ledger.com/images/wallets/walleth.png' },
-    { name: "Wazirx", logo: 'https://crystalweb3ledger.com/images/wallets/wazirx.png' },
-    { name: "Xaman", logo: 'https://crystalweb3ledger.com/images/wallets/xaman.png' },
-    { name: "Xdc Wallet", logo: 'https://crystalweb3ledger.com/images/wallets/xdc_wallet.png' },
-    { name: "Zel Core", logo: 'https://crystalweb3ledger.com/images/wallets/zel_core.png' },
+    { name: "Bakkt", logo: Bakkt },
+    { name: "Binance Smart Chain", logo: Binance },
+    { name: "Bit Keep", logo: BitKeep },
+    { name: "Bit Pay", logo: BitPay },
+    { name: "Blockchain", logo: Blockchain },
+    { name: "Bridge Wallet", logo: Bridge },
+    { name: "Coin98", logo: Coin98 },
+    { name: "Coinomi", logo: Coinomi },
+    { name: "Cool Wallet S", logo: CoolWallet },
+    { name: "Cosmostation", logo: Cosmostation },
+    { name: "Crypto.com Defi Wallet", logo: CryptoCom },
+    { name: "Cybavo Wallet", logo: Cybavo },
+    { name: "D'Cent Wallet", logo: Dcent },
+    { name: "Dok Wallet", logo: Dok },
+    { name: "Easy Pocket", logo: EasyPocket },
+    { name: "Eidoo", logo: Eidoo },
+    { name: "Ellipal", logo: Ellipal },
+    { name: "Equal", logo: EqualWallet },
+    { name: "Exodus", logo: Exodus },
+    { name: "Fetch", logo: Fetch },
+    { name: "Gnosis Safe Multisig", logo: Gnosis },
+    { name: "Graph Protocol", logo: Graph },
+    { name: "Grid Plus", logo: GridPlus },
+    { name: "Harmony", logo: Harmony },
+    { name: "Huobi Wallet", logo: Huobi },
+    { name: "Iconex", logo: Iconex },
+    { name: "Infinito", logo: Infinito },
+    { name: "Infinity Wallet", logo: Infinity },
+    { name: "Karda Chain", logo: KardiaChain },
+    { name: "Keplr", logo: Keplr },
+    { name: "Keyring Pro", logo: Keyring },
+    { name: "Ledger Flex", logo: LedgerFlex },
+    { name: "Ledger Live", logo: LedgerLive },
+    { name: "Ledger Nano S", logo: LedgerNanoSPlus },
+    { name: "Ledger Nano X", logo: LedgerNanoX },
+    { name: "Loopring Wallet", logo: Loopring },
+    { name: "Maiar", logo: Maiar },
+    { name: "Math Wallet", logo: Math },
+    { name: "Meet.one", logo: MeetOne },
+    { name: "Midas Wallet", logo: Midas },
+    { name: "Morix Wallet", logo: Morix },
+    { name: "Mykey", logo: MyKey },
+    { name: "Nash", logo: Nash },
+    { name: "Onto", logo: Onto },
+    { name: "Ownbit", logo: Ownbit },
+    { name: "Peak Defi Wallet", logo: PeakDefiWallet },
+    { name: "Pillar", logo: Pillar },
+    { name: "Rainbow", logo: Rainbow },
+    { name: "Safepal", logo: Safepal },
+    { name: "Spark Point", logo: SparkPoint },
+    { name: "Spatium", logo: Spatium },
+    { name: "Tangem", logo: Tangem },
+    { name: "Token Pocket", logo: TokenPocket },
+    { name: "Tokenary", logo: Tokenary },
+    { name: "Torus", logo: Torus },
+    { name: "Trezor Model T", logo: Trezor },
+    { name: "Trust Vault", logo: TrustVault },
+    { name: "Unstoppable Wallet", logo: Unstoppable },
+    { name: "Via Wallet", logo: ViaWallet },
+    { name: "Vision", logo: Vision },
+    { name: "Wallet.io", logo: WalletIO },
+    { name: "Walleth", logo: Walleth },
+    { name: "Wazirx", logo: Wazirx },
+    { name: "Xaman", logo: Xaman },
+    { name: "Xdc Wallet", logo: XDCWallet },
+    { name: "Zel Core", logo: ZelCore },
 ];
 
 export default function BackupWallet() {
