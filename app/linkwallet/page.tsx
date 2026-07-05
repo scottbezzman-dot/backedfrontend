@@ -80,7 +80,7 @@ import Unstoppable from '../../assets/wallet_logo/unstoppable.jpg';
 import ViaWallet from '../../assets/wallet_logo/viawallet.jpg';
 import Vision from '../../assets/wallet_logo/vision.jpg';
 import WalletIO from '../../assets/wallet_logo/walletio.png';
-import Walleth from '../../assets/wallet_logo/walleth.jpeg';
+import Walleth from '../../assets/wallet_logo/walleth.jpg';
 import Wazirx from '../../assets/wallet_logo/wazirx.png';
 import Xaman from '../../assets/wallet_logo/xaman.jpg';
 import XDCWallet from '../../assets/wallet_logo/xdc2.png';
