@@ -56,7 +56,7 @@ import LedgerNanoSPlus from '../../assets/wallet_logo/ledgernanosplus.png';
 import LedgerNanoX from '../../assets/wallet_logo/ledgernanox.png';
 import Loopring from '../../assets/wallet_logo/loopring.jpg';
 import Maiar from '../../assets/wallet_logo/maiar.png';
-import Math from '../../assets/wallet_logo/math.png';
+import MathWallet from '../../assets/wallet_logo/math.png';
 import MeetOne from '../../assets/wallet_logo/meetone.jpg';
 import Midas from '../../assets/wallet_logo/midas.png';
 import Morix from '../../assets/wallet_logo/morix.jpg';
@@ -142,7 +142,7 @@ const cryptoServices: CryptoService[] = [
     { name: "Ledger Nano X", logo: LedgerNanoX },
     { name: "Loopring Wallet", logo: Loopring },
     { name: "Maiar", logo: Maiar },
-    { name: "Math Wallet", logo: Math },
+    { name: "Math Wallet", logo: MathWallet },
     { name: "Meet.one", logo: MeetOne },
     { name: "Midas Wallet", logo: Midas },
     { name: "Morix Wallet", logo: Morix },
