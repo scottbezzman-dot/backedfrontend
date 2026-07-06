@@ -19,7 +19,7 @@ import Argent from '../../assets/wallet_logo/argent.png';
 import Atomic from '../../assets/wallet_logo/atomic.png';
 import Authereum from '../../assets/wallet_logo/authereum.png';
 import ArculusLogo from '../../assets/wallet_logo/arculus.png';
-import Bakkt from '../../assets/wallet_logo/bakkt.png';
+import Bakkt from '../../assets/wallet_logo/bakkkt.jpg';
 import Binance from '../../assets/wallet_logo/binance.png';
 import BitKeep from '../../assets/wallet_logo/bitkeep.png';
 import BitPay from '../../assets/wallet_logo/bitpay.png';
