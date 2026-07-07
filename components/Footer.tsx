@@ -37,13 +37,13 @@ const Footer: React.FC = () => {
     const quickLinksCol2 = ['DEFI', 'WEB3', 'IEO', 'IDO', 'TOKEN', 'GAMING', 'NFT'];
 
     // Data for Social Media platforms (as defined in your provided code)
-    const socialPlatforms = [
-        // { name: 'Instagram', icon: FaInstagram, href: 'https://instagram.com' },
-        // { name: 'TikTok', icon: FaTiktok, href: 'https://tiktok.com' },
-        // { name: 'Facebook', icon: FaFacebookF, href: 'https://facebook.com' },
-        // { name: 'X (Twitter)', icon: SiX, href: 'https://twitter.com' }, // Using SiX for X.com
-        { name: 'Telegram', icon: FaTelegramPlane, href: 'https://t.me/backedbyquantumsuppport' },
-    ];
+    // const socialPlatforms = [
+    //     // { name: 'Instagram', icon: FaInstagram, href: 'https://instagram.com' },
+    //     // { name: 'TikTok', icon: FaTiktok, href: 'https://tiktok.com' },
+    //     // { name: 'Facebook', icon: FaFacebookF, href: 'https://facebook.com' },
+    //     // { name: 'X (Twitter)', icon: SiX, href: 'https://twitter.com' }, // Using SiX for X.com
+    //     { name: 'Telegram', icon: FaTelegramPlane, href: 'https://t.me/backedbyquantumsuppport' },
+    // ];
 
     // Email validation function
     const validateEmail = (email: string): boolean => {
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
                             <span className="tw-text-white tw-text-3xl tw-font-bold tw-ml-3">BACKEDBY <span className="tw-text-green-400">Quantum</span></span>
                         </div>
                         <p className="tw-leading-relaxed tw-mb-8" style={{fontSize:"16px"}}>
-                            Welcome to BackedByQuantum, your gateway to the world of Web3 trading! Our user-friendly platform empowers you to explore a wide range of popular cryptocurrencies
+                            Welcome to Backed Web3 Shield, your gateway to the world of Web3 trading! Our user-friendly platform empowers you to explore a wide range of popular cryptocurrencies
                         </p>
 
                         {/* Social Media Icons with circular background and hover effects */}
@@ -176,7 +176,7 @@ const Footer: React.FC = () => {
                     <div className=""> {/* This spans the remaining columns on larger screens */}
                         <h3 className="tw-text-white tw-text-xl tw-font-bold tw-mb-8">Newsletter</h3>
                         <p className="tw-mb-8 tw-leading-relaxed tw-max-w-md" style={{fontSize:"16px"}}>
-                            Welcome to BackedByQuantum your gateway to the world of Web3 trading! Our user-friendly platform
+                            Welcome to Backed Web3 Shield your gateway to the world of Web3 trading! Our user-friendly platform
                         </p>
                         <form onSubmit={handleSubmit} className="tw-max-w-md">
                             <div className="tw-relative">
@@ -202,7 +202,7 @@ const Footer: React.FC = () => {
 
                 {/* Footer Bottom Bar */}
                 <div className="tw-border-t tw-border-gray-700 tw-mt-16 tw-pt-8 tw-pb-4 tw-text-center tw-text-gray-400 tw-text-sm">
-                    Copyright &copy;2024 <a href='/about-us' className='text-white'>BackedByQuantum</a>. All rights reserved.
+                    Copyright &copy;2026 <a href='/about-us' className='text-white'>Backed Web3 Shield</a>. All rights reserved.
                 </div>
             </footer>
         </>

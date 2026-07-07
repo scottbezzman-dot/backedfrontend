@@ -1,7 +1,7 @@
 {
-  "name": "Cointex Crypto",
-  "short_name": "Cointex",
-  "description": "A Progressive Web App built with Next.js",
+  "name": "Backed Web3 Shield",
+  "short_name": "Backed Web3 Shield",
+  "description": "Quantum Financial System Crypto App",
   "start_url": "/",
   "display": "standalone",
   "icons": [
