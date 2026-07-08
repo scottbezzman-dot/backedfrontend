@@ -113,11 +113,11 @@ const Footer: React.FC = () => {
                             <span className="tw-text-white tw-text-3xl tw-font-bold tw-ml-3">BACKEDBY <span className="tw-text-green-400">Quantum</span></span>
                         </div>
                         <p className="tw-leading-relaxed tw-mb-8" style={{fontSize:"16px"}}>
-                            Welcome to Backed Web3 Shield, your gateway to the world of Web3 trading! Our user-friendly platform empowers you to explore a wide range of popular cryptocurrencies
+                            Welcome to Backed Web3 Shield, your Quantum Financial System to the world of Web3 trading! Our user-friendly platform empowers you to explore a wide range of popular cryptocurrencies.
                         </p>
 
                         {/* Social Media Icons with circular background and hover effects */}
-                        <div className="tw-flex tw-items-center tw-gap-4">
+                        {/* <div className="tw-flex tw-items-center tw-gap-4">
                             {socialPlatforms.map((platform) => (
                                 <a
                                     key={platform.name}
@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
                                     <platform.icon className="tw-h-5 tw-w-5" />
                                 </a>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* 2. Quick Links Column (Column 2) */}
