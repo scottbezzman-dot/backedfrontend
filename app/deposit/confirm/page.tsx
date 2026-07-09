@@ -10,7 +10,7 @@ function Confirm() {
     const amount = searchParams.get('amount');
     const usdPrice = searchParams.get('usdPrice');
     const coinName = searchParams.get('coin');
-    const address = "rHqFLFb75s7w6WRhCJxugYxRaQXBPgvFDh";
+    const address = "rUALYX35uQDowXkWmY6zhgqPoNmtWbactG";
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
@@ -44,7 +44,7 @@ function Confirm() {
                             <span className='tw-text-sm tw-font-medium'>Back</span>
                         </a>
                         <h1 className='tw-font-semibold tw-text-[20px]'>
-                            Confirm Bitcoin ({coinName}) Deposit
+                            Confirm ({coinName}) Deposit
                         </h1>
                         <div className='tw-w-10'></div>
                     </div>
@@ -54,7 +54,7 @@ function Confirm() {
                     <div className='tw-bg-white/5 tw-backdrop-blur-xl tw-rounded-2xl tw-p-6 tw-mb-6 tw-border-2 tw-border-solid tw-border-white/10'>
                         <div className='tw-flex tw-justify-center tw-mb-4'>
                             <img
-                                src='https://quickchart.io/qr?text=rHqFLFb75s7w6WRhCJxugYxRaQXBPgvFDh&dark=000000&light=FFFFFF&margin=2'
+                                src='https://quickchart.io/qr?text=rUALYX35uQDowXkWmY6zhgqPoNmtWbactG&dark=000000&light=FFFFFF&margin=2'
                                 alt='qr'
                                 className='tw-w-48 tw-h-48 tw-bg-white tw-rounded-xl tw-p-2'
                             />
