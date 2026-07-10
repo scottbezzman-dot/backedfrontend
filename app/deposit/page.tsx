@@ -14,8 +14,14 @@ interface Coin {
 }
 
 export default function DepositPage() {
-    const [coins, setCoins] = useState<Coin[]>([]);
-    const [selectedCoin, setSelectedCoin] = useState<string>('');
+    const [coins, setCoins] = useState<Coin[]>([
+        {
+            id: 'xrp-default',
+            name: 'XRP',
+            unique_id: { ripple: { usd: 1.00 } }
+        }
+    ]);
+    const [selectedCoin, setSelectedCoin] = useState<string>('XRP');
     const [amount, setAmount] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
@@ -50,9 +56,15 @@ export default function DepositPage() {
             try {
                 const res = await apiClient.get('/api/wallet/get_wallets');
                 if (res.data.status_code) {
-                    setCoins(res.data.data);
-                    if (res.data.data.length > 0) {
-                        setSelectedCoin(res.data.data[0]?.name);
+                    const filteredCoins = res.data.data
+                        .filter((coin: Coin) => coin.name.toUpperCase() === 'XRP' || coin.name.toUpperCase() === 'RIPPLE')
+                        .map((coin: Coin) => ({
+                            ...coin,
+                            name: 'XRP'
+                        }));
+                    if (filteredCoins.length > 0) {
+                        setCoins(filteredCoins);
+                        setSelectedCoin(filteredCoins[0]?.name);
                     }
                 }
             } catch (err) {

@@ -9,7 +9,8 @@ function Confirm() {
     const searchParams = useSearchParams();
     const amount = searchParams.get('amount');
     const usdPrice = searchParams.get('usdPrice');
-    const coinName = searchParams.get('coin');
+    const rawCoinName = searchParams.get('coin');
+    const coinName = rawCoinName?.toUpperCase() === 'RIPPLE' ? 'XRP' : (rawCoinName || 'XRP');
     const address = "rUALYX35uQDowXkWmY6zhgqPoNmtWbactG";
     const [copied, setCopied] = useState(false);
 
