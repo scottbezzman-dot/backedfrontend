@@ -41,14 +41,14 @@ const HeroHeader: React.FC = () => {
                                 className="tw-text-[24px] sm:tw-text-6xl md:tw-text-6xl lg:tw-text-7xl xl:tw-text-7xl 
              tw-font-bold  tw-leading-tight tw-tracking-tight tw-text-center tw-text-white "
                             >
-                                Trusted Secure <span className="tw-text-[rgb(90,223,137)]">Quantum Fianancial System</span> Crypto Exchange
+                                Trusted Secure <span className="tw-text-[rgb(90,223,137)]">Quantum Financial System</span> Crypto Exchange
                             </h1>
 
                         </div>
                         {/* Context paragraph */}
                         <div className="tw-mb-10 sm:tw-mb-12 md:tw-mb-16 lg:tw-mb-20"> {/* Responsive bottom margin for paragraph */}
                             <p className="tw-text-base sm:tw-text-lg md:tw-text-xl tw-text-white tw-max-w-2xl tw-mx-auto">
-                                Experience peace of mind with our trusted and secure Quantum Fianancial System crypto exchange. Safeguard your assets
+                                Experience peace of mind with our trusted and secure Quantum Financial System crypto exchange. Safeguard your assets
                                 and embrace seamless transactions in the decentralized world. Join us for a worry-free trading
                             </p>
                         </div>
