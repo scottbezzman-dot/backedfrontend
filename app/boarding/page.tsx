@@ -4,8 +4,8 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Boarding || Quantum Fianancial System crypto app",
-  description: "Quantum Fianancial System crypto app",
+  title: "Boarding || Quantum Financial System Crypto App",
+  description: "Quantum Financial System Crypto App",
 };
 
 const Page: React.FC = () => {
@@ -85,7 +85,7 @@ const Page: React.FC = () => {
                 Next{" "}
               </Link>
               <p className="mt-20 text-center mb-35">
-                By creating an account, you’re agree to our
+                By creating an account, you agree to our
                 <Link
                   href='/about-us'
                   className="text-white"
