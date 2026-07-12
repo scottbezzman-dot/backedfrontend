@@ -85,7 +85,7 @@ export default function Rating({ coins }: RatingProps) {
           <h5>
             <Link href={`/cryptex-rating`} className="cryptex-rating">
               <i className="icon-star" />
-              backedbyquantum Rating
+              Backed Web3 Shield Rating
             </Link>
           </h5>
 
