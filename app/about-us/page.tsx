@@ -8,10 +8,10 @@ export default function AboutUs() {
                 <h2 className="text-lg font-semibold text-white mb-8" style={{ paddingTop: "24px" }}>About Us</h2>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
                     <h2 className="font-semibold text-white mb-1" style={{ paddingTop: "24px", fontSize: "15px" }}>
-                        About this Quantum Fianancial System
+                        About Backed Web3 Shield | Quantum Financial System
                     </h2>
                     <p style={{ color: "white" }}>
-                        backedweb3shield.org Web App is a decentralised decentralisationned to revolutionise the world of finance by offering users a range of innovative services. The Technology is built on the principles of decentralisation and security, aimed to replace the corrupt central banking system and bring financial freedom to everyone, including those in rural and unbanked regions. It has rapidly gained traction among global freedom lovers, who see it as a powerful tool for economic emancipation.
+                        Backed Web3 Shield is a decentralised positioned to revolutionise the world of finance by offering users a range of innovative services. The Technology is built on the principles of decentralisation and security, aimed to replace the corrupt central banking system and bring financial freedom to everyone, including those in rural and unbanked regions. It has rapidly gained traction among global freedom lovers, who see it as a powerful tool for economic emancipation.
                     </p>
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
@@ -19,15 +19,15 @@ export default function AboutUs() {
                         Decentralised Nature
                     </h2>
                     <p style={{ color: "white" }}>
-                        At its core, backedweb3shield.org App is a decentralised technology which means it operates without a central authority. This approach allows users to maintain control over their assets and data, while also enabling greater transparency and resistance to censorship. Decentralisationures that no single entity can control or manipulate the platform, fostering an environment of trust and collaboration.
+                        At its core, Backed Web3 Shield is a decentralised technology which means it operates without a central authority. This approach allows users to maintain control over their assets and data, while also enabling greater transparency and resistance to censorship. Decentralisationures that no single entity can control or manipulate the platform, fostering an environment of trust and collaboration.
                     </p>
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
                     <h2 className="font-semibold text-white mb-1" style={{ fontSize: "15px" }}>
-                        Quantum Fianancial System Security
+                        Quantum Financial System Security
                     </h2>
                     <p style={{ color: "white" }}>
-                        backedweb3shield.org App utilises Quantum Financial System (Quantum Fianancial System) security, an advanced cryptographic technology that ensures the safety and privacy of users' assets. The Quantum Fianancial System security model provides robust protection against hacks, data breaches, and other malicious activities, giving users peace of mind as they manage their crypto holdings.
+                        Backed Web3 Shield utilises Quantum Financial System (Quantum Financial System) security, an advanced cryptographic technology that ensures the safety and privacy of users' assets. The Quantum Fianancial System security model provides robust protection against hacks, data breaches, and other malicious activities, giving users peace of mind as they manage their crypto holdings.
                     </p>
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
@@ -35,7 +35,7 @@ export default function AboutUs() {
                         Purchase and Delivery of Precious Metals
                     </h2>
                     <p style={{ color: "white" }}>
-                        One of the unique features of backedweb3shield.org App is the ability to purchase precious metals using USDT (Tether), a stablecoin pegged to the US dollar. Users can acquire gold, silver, platinum, and other metals, which can then be securely delivered to their provided home address. This service makes investing in precious metals more accessible and convenient than ever before.
+                        One of the unique features of Backed Web3 Shield has the ability to purchase precious metals using USDT (Tether), a stablecoin pegged to the US dollar. Users can acquire gold, silver, platinum, and other metals, which can then be securely delivered to their provided home address. This service makes investing in precious metals more accessible and convenient than ever before.
                     </p>
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
@@ -43,7 +43,7 @@ export default function AboutUs() {
                         Investment and Earnings
                     </h2>
                     <p style={{ color: "white" }}>
-                        backedweb3shield.org App also offers users the opportunity to invest their precious metals, generating a given amount of daily earnings. This innovative feature allows users to grow their wealth in a secure and transparent manner, while also benefiting from the stability and value retention of precious metals.
+                        Backed Web3 Shield also offers users the opportunity to invest their precious metals, generating a given amount of daily earnings. This innovative feature allows users to grow their wealth in a secure and transparent manner, while also benefiting from the stability and value retention of precious metals.
                     </p>
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
@@ -51,7 +51,7 @@ export default function AboutUs() {
                         Security and Privacy
                     </h2>
                     <p style={{ color: "white" }}>
-                        The platform prioritizes user security and privacy, employing cutting-edge encryption and security protocols to protect sensitive data and financial transactions. Users can trust that their assets and personal information are safe when using quantumflrbackupledger.com App.
+                        The platform prioritizes user security and privacy, employing cutting-edge encryption and security protocols to protect sensitive data and financial transactions. Users can trust that their assets and personal information are safe when using Backed Web3 Shield.
                     </p>
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
@@ -59,7 +59,7 @@ export default function AboutUs() {
                         Empowering Rural and Unbanked Regions.
                     </h2>
                     <p style={{ color: "white" }}>
-                        By leveraging decentralized finance and blockchain technology, quantumflrbackupledger.com App is uniquely positioned to bring financial services to rural and unbanked populations. The platform's user-friendly design and accessibility make it an ideal solution for those who have been historically underserved by traditional financial institutions.
+                        By leveraging decentralized finance and blockchain technology, Backed Web3 Shield is uniquely positioned to bring financial services to rural and unbanked populations. The platform's user-friendly design and accessibility make it an ideal solution for those who have been historically underserved by traditional financial institutions.
                     </p>
                 </div>
                 <div className="flex flex-col" style={{ marginBottom: "20px" }}>
@@ -75,7 +75,7 @@ export default function AboutUs() {
                         Conclusion
                     </h2>
                     <p style={{ color: "white" }}>
-                        In conclusion, backedweb3shield.org App is a groundbreaking technology that offers a range of decentralised financial services, including the purchase and investment of precious metals, secure crypto storage, and access to financial tools for unbanked populations. Its commitment to security, transparency, and decentralisation makes it an appealing choice for anyone seeking financial freedom and independence.
+                        In conclusion, Backed Web3 Shield is a groundbreaking technology that offers a range of decentralised financial services, including the purchase and investment of precious metals, secure crypto storage, and access to financial tools for unbanked populations. Its commitment to security, transparency, and decentralisation makes it an appealing choice for anyone seeking financial freedom and independence.
                     </p>
                 </div>
             </div>
