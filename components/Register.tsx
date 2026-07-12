@@ -65,7 +65,7 @@ export default function Register() {
       <div className="pt-45">
         <div className="tf-container">
           <form onSubmit={handleSubmit} className="mt-32 mb-16">
-            <h2 className="text-center">Register Quantum Fianancial System</h2>
+            <h2 className="text-center">Register Quantum Financial System</h2>
 
             <fieldset className="mt-40">
               <label className="label-ip">
