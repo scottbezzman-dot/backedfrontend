@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import Footer1 from "@/components/footers/Footer1";
 
 export const metadata: Metadata = {
-  title: "User Info || Quantum Fianancial System crypto app",
-  description: "Quantum Fianancial System crypto app",
+  title: "User Info || Quantum Financial System Crypto App",
+  description: "Quantum Fianancial System Crypto App",
 };
 
 const Page: React.FC = () => {
