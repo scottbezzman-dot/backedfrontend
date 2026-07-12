@@ -16,8 +16,8 @@ interface CoinItem {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Choice Cryptocurrency || Quantum Fianancial System crypto app",
-  description: "Quantum Fianancial System crypto app",
+  title: "Choice Cryptocurrency || Quantum Financial System Crypto App",
+  description: "Quantum Financial System Crypto App",
 };
 const Page: React.FC = () => {
   return (
@@ -26,7 +26,7 @@ const Page: React.FC = () => {
         <a href="#" className="left back-btn">
           <GoBackButton />
         </a>
-        <h3>Choose cryptocurrency</h3>
+        <h3>Choose Cryptocurrency</h3>
       </div>
       <div className="pt-45 pb-16">
         <div className="tf-container">
