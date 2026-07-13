@@ -102,7 +102,7 @@ const HowItWorks: React.FC = () => {
                         How It Works
                     </h2>
                     <p className="tw-text-white/80 tw-text-base sm:tw-text-lg sm:tw-text-xl tw-max-w-3xl tw-mx-auto tw-leading-relaxed">
-                        Discover how BackedByQuantum website simplifies crypto trading through user-friendly interfaces, secure transactions, and real-time market insights.
+                        Discover how Backed Web3 Shield website simplifies crypto trading through user-friendly interfaces, secure transactions, and real-time market insights.
                     </p>
                 </div>
 

@@ -13,8 +13,8 @@ interface Coin {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home Search || Quantum Fianancial System crypto app",
-  description: "Quantum Fianancial System crypto app",
+  title: "Home Search || Quantum Financial System Crypto App",
+  description: "Quantum Financial System Crypto App",
 };
 const Page: React.FC = () => {
   return (

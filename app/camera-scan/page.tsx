@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Camera Scan || Quantum Fianancial System crypto app",
-  description: "Quantum Fianancial System crypto app",
+  description: "Quantum Fianancial System Crypto App",
 };
 
 const Page: React.FC = () => {

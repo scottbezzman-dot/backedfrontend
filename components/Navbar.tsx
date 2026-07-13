@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
                             BACKED
                         </span>
                         <span className="tw-bg-gradient-to-br tw-from-[#00BCD4] tw-to-[#99CC00] tw-text-transparent tw-bg-clip-text text-capitalize tw-text-xl sm:tw-text-2xl">
-                            WEB3SHIELD
+                            WEB3 SHIELD
                         </span>
                     </div>
                 </a>

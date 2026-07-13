@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
                                 height={48}
                                 className="tw-object-contain"
                             />
-                            <span className="tw-text-white tw-text-3xl tw-font-bold tw-ml-3">BACKEDBY <span className="tw-text-green-400">Quantum</span></span>
+                            <span className="tw-text-white tw-text-3xl tw-font-bold tw-ml-3">BACKED WEB3 <span className="tw-text-green-400">SHIELD</span></span>
                         </div>
                         <p className="tw-leading-relaxed tw-mb-8" style={{fontSize:"16px"}}>
                             Welcome to Backed Web3 Shield, your Quantum Financial System to the world of Web3 trading! Our user-friendly platform empowers you to explore a wide range of popular cryptocurrencies.

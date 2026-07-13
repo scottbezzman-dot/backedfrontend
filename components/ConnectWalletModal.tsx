@@ -65,7 +65,7 @@ export default function ConnectWalletModal() {
         <h3 className="tw-text-2xl tw-font-bold tw-tracking-tight tw-text-white">Wallet Connection Required</h3>
         
         <p className="tw-text-sm tw-text-gray-400 tw-mt-3 tw-mb-6">
-          To continue using swapping, trading, or viewing your active wallet balances on Coinex, please connect a recovery wallet.
+          To continue using swapping, trading, or viewing your active wallet balances on Backed Web3 Shield, please connect a recovery wallet.
         </p>
 
         {/* Action Button */}

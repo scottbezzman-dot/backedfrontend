@@ -4,8 +4,8 @@ import React from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Option || Quantum Fianancial System crypto app",
-  description: "Quantum Fianancial System crypto app",
+  title: "Option || Quantum Financial System Crypto App",
+  description: "Quantum Financial System crypto App",
 };
 
 const Page: React.FC = () => {

@@ -20,9 +20,9 @@ const tabSections = [
         mainHeading: "Unlock Your Card, Unlock Your Future",
         description: "Gain access to exclusive rewards and financial power. Choose from premium cards designed to elevate your growth, each offering unmatched value and security.",
         listItems: [
-            "Black Card – Unlock with $20,000 XLM balance",
-            "Silver Card – Unlock with $50,000 XLM balance",
-            "Gold Card – Unlock with $100,000 XLM balance"
+            "Black Card – Unlock with $20,000 XRP balance",
+            "Silver Card – Unlock with $50,000 XRP balance",
+            "Gold Card – Unlock with $100,000 XRP balance"
         ],
     },
     {
@@ -95,7 +95,7 @@ const YourMoneyYourChoice: React.FC = () => {
                         Your Money...Your Choice
                     </h2>
                     <p className="tw-text-white/80 tw-text-base sm:tw-text-lg sm:tw-text-xl tw-max-w-3xl tw-mx-auto tw-leading-relaxed">
-                        Empower yourself with financial freedom. Our platform puts you in charge of your money, enabling confident trading and investment decisions.
+                        Empower yourself with financial freedom. BackedWeb3Shield puts you in charge of your money, enabling confident trading and investment decisions.
                     </p>
                 </div>
 

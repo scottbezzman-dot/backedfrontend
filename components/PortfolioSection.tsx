@@ -56,7 +56,7 @@ const PortfolioSection: React.FC = () => {
                         Create your crypto currency portfolio today
                     </h2>
                     <p className="tw-text-white/80 tw-text-base sm:tw-text-lg sm:tw-text-xl tw-max-w-3xl tw-mx-auto tw-leading-relaxed">
-                        Start building your cryptocurrency portfolio quickly today, seizing the opportunities of the digital asset market with BackedByQuantum. Join us now!
+                        Start building your cryptocurrency portfolio quickly today, seizing the opportunities of the digital asset market with Backed Web3 Shield. Join us now!
                     </p>
                 </div>
 
@@ -68,17 +68,17 @@ const PortfolioSection: React.FC = () => {
                         <StepItem
                             number="01"
                             title="Verify your identity"
-                            description="Ensure security - verify your identity to access our full range of services with BackedByQuantum"
+                            description="Ensure security - verify your identity to access our full range of services with Backed Web3 Shield"
                         />
                         <StepItem
                             number="02"
                             title="Fund your account"
-                            description="Boost your account - fund it quickly and securely to start trading with BackedByQuantum"
+                            description="Boost your account - fund it quickly and securely to start trading with Backed Web3 Shield"
                         />
                         <StepItem
                             number="03"
                             title="Start trading"
-                            description="Take the leap - start trading now and explore the world of crypto opportunities with BackedByQuantum."
+                            description="Take the leap - start trading now and explore the world of crypto opportunities with Backed Web3 Shield."
                         />
                     </div>
 
@@ -90,7 +90,7 @@ const PortfolioSection: React.FC = () => {
                                 loading="lazy"
                                 // src="https://framerusercontent.com/images/hSgICHJoLrknJoEucvrbyDwqFI.webp"
                                 src={home.src}
-                                alt="BackedByQuantum dashboard with portfolio statistics and market values"
+                                alt="Backed Web3 Shield dashboard with portfolio statistics and market values"
                                 className="tw-w-full tw-h-full tw-object-contain" // tw-object-cover to ensure image fills container without distortion
                             />
                         </div>
