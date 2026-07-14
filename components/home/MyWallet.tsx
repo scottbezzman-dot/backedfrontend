@@ -87,11 +87,24 @@ export default function MyWallet() {
     <>
       <div className="bg-menuDark tf-container">
         <div className="pt-12 pb-12 mt-4">
-          <h5>
+          {/* <h5>
             <span className="text-primary">My Wallet</span>
           </h5>
           <h1 className="mt-16">
             <a href="#">${(coins ? coins?.total_value : 0)?.toFixed(2)}</a>
+          </h1> */}
+
+          <h5>
+            <span className="text-primary">My Wallet</span>
+          </h5>
+          <h1 className="mt-16">
+            <a href="#">
+              $
+              {(coins ? coins?.total_value : 0).toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </a>
           </h1>
           <ul className="mt-16 grid-4 m--16">
             <li>
