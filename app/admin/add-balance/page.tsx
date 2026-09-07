@@ -288,8 +288,6 @@
 //   );
 // }
 
-
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -311,14 +309,13 @@ interface CoinBalance {
   icon: string;
   type: string;
   balance: number;
-  price?: number; // Current USD price per coin from API
+  price?: number; // Current USD price per coin (e.g., 0.707)
 }
 
 export default function AdminAddBalancePage() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Selected user and their coins state for the balance edit modal
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [coinBalances, setCoinBalances] = useState<CoinBalance[]>([]);
   const [loadingCoins, setLoadingCoins] = useState(false);
@@ -370,7 +367,6 @@ export default function AdminAddBalancePage() {
       });
       if (res.data.status_code) {
         toast.success("Coin balance successfully updated!");
-        // Update local coin list state with new balance
         setCoinBalances((prev) =>
           prev.map((c) => (c.coin_id === coinId ? { ...c, balance: newCoinBalance } : c))
         );
@@ -398,7 +394,7 @@ export default function AdminAddBalancePage() {
       <div>
         <h1 className="tw-text-lg tw-font-bold tw-tracking-tight tw-text-white">Update Coin Balances</h1>
         <p className="tw-text-gray-400 tw-text-xs tw-mt-1">
-          Adjust account balances by typing in the equivalent USD ($) value.
+          Adjust account balances by entering the target USD ($) value.
         </p>
       </div>
 
@@ -450,7 +446,6 @@ export default function AdminAddBalancePage() {
       {/* Edit Balance Modal Backdrop */}
       {selectedUser && (
         <div className="tw-fixed tw-inset-0 tw-z-50 tw-bg-black/60 tw-backdrop-blur-sm tw-flex tw-justify-center tw-items-center tw-p-4">
-          {/* Modal Container */}
           <div className="tw-w-full tw-max-w-xl tw-bg-[#161b22] tw-border tw-border-solid tw-border-gray-800 tw-rounded-2xl tw-overflow-hidden tw-shadow-2xl tw-animate-zoom-in">
             {/* Modal Header */}
             <div className="tw-px-6 tw-py-4 tw-border-b tw-border-solid tw-border-gray-800 tw-flex tw-justify-between tw-items-center">
@@ -514,23 +509,35 @@ function CoinBalanceRow({
   isUpdating: boolean;
   onUpdate: (newCoinVal: number) => void;
 }) {
-  // Input starts completely empty for fast entering
   const [dollarValue, setDollarValue] = useState("");
 
-  const handleSave = () => {
-    const usd = parseFloat(dollarValue);
+  // Live price per coin (or fallback to rate property if structured differently)
+  const coinPrice = coin.price && coin.price > 0 ? coin.price : null;
 
-    if (isNaN(usd) || usd < 0) {
+  // Live calculation of preview units to show user before hitting Save
+  const parsedUsd = parseFloat(dollarValue);
+  const previewCoinUnits =
+    !isNaN(parsedUsd) && parsedUsd >= 0 && coinPrice
+      ? (parsedUsd / coinPrice).toFixed(6)
+      : null;
+
+  const handleSave = () => {
+    if (isNaN(parsedUsd) || parsedUsd < 0) {
       toast.error("Please enter a valid USD amount (0 or greater).");
       return;
     }
 
-    // Use current coin price from API (fallback to 1 if missing or 0 to prevent division by zero)
-    const coinPrice = coin.price && coin.price > 0 ? coin.price : 1;
-    const calculatedCoins = usd / coinPrice;
+    if (!coinPrice) {
+      toast.error(`Price unavailable for ${coin.name}. Check backend price configuration.`);
+      return;
+    }
+
+    // Formula: USD Amount / USD Price per Coin = Number of Coins
+    // e.g., $20 / $1.414 = 14.144271 XRP
+    const calculatedCoins = parsedUsd / coinPrice;
 
     onUpdate(calculatedCoins);
-    setDollarValue(""); // Clear input after successful action dispatch
+    setDollarValue("");
   };
 
   return (
@@ -554,21 +561,27 @@ function CoinBalanceRow({
         <div>
           <div className="tw-text-xs tw-font-bold tw-text-white">{coin.name}</div>
           <div className="tw-text-[10px] tw-text-gray-500 tw-capitalize">
-            {coin.type} {coin.price ? `• $${coin.price.toLocaleString()}` : ""}
+            {coin.type} {coinPrice ? `• $${coinPrice.toLocaleString()} / unit` : "• Price Unavailable"}
           </div>
         </div>
       </div>
 
-      {/* Input & Update Controls */}
+      {/* Input & Controls */}
       <div className="tw-flex tw-justify-between tw-items-center tw-gap-2">
         <div className="tw-text-right tw-mr-1">
           <div className="tw-text-[10px] tw-text-gray-500 tw-text-nowrap">Current Balance</div>
           <div className="tw-text-xs tw-font-semibold tw-text-gray-300">
             {coin.balance} {coin.unique_id?.toUpperCase()}
           </div>
+          {/* Real-time calculated unit readout */}
+          {previewCoinUnits && (
+            <div className="tw-text-[10px] tw-text-green-400 tw-font-mono">
+              ≈ {previewCoinUnits} {coin.unique_id?.toUpperCase()}
+            </div>
+          )}
         </div>
 
-        {/* Input field takes USD ($) and starts empty */}
+        {/* Dollar Input */}
         <div className="tw-relative">
           <span className="tw-absolute tw-left-2.5 tw-top-1/2 -tw-translate-y-1/2 tw-text-xs tw-text-gray-500">$</span>
           <input
@@ -578,14 +591,14 @@ function CoinBalanceRow({
             value={dollarValue}
             onChange={(e) => setDollarValue(e.target.value)}
             className="tw-w-24 tw-bg-[#0d1117] tw-border tw-border-solid tw-border-gray-800 focus:tw-border-green-500 tw-rounded-xl tw-pl-6 tw-pr-2 tw-py-1.5 tw-text-xs tw-text-white focus:tw-outline-none tw-transition"
-            placeholder="0.00"
+            placeholder="USD ($)"
           />
         </div>
 
         <button
           onClick={handleSave}
-          disabled={isUpdating}
-          className="tw-bg-green-600 hover:tw-bg-green-500 disabled:tw-bg-green-800 tw-text-white tw-text-[11px] tw-font-bold tw-px-3.5 tw-py-2 tw-rounded-xl tw-transition tw-shadow-sm"
+          disabled={isUpdating || !coinPrice}
+          className="tw-bg-green-600 hover:tw-bg-green-500 disabled:tw-bg-gray-800 disabled:tw-text-gray-500 tw-text-white tw-text-[11px] tw-font-bold tw-px-3.5 tw-py-2 tw-rounded-xl tw-transition tw-shadow-sm"
         >
           {isUpdating ? "..." : "Save"}
         </button>
