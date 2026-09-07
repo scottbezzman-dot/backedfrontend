@@ -309,8 +309,8 @@ interface CoinBalance {
   icon: string;
   type: string;
   balance: number;
-  price?: number;
-  rate?: number; // Fallback field support for live price
+  price?: number; // Current USD price per coin
+  rate?: number;  // Fallback field support for live price
 }
 
 export default function AdminAddBalancePage() {
@@ -326,7 +326,7 @@ export default function AdminAddBalancePage() {
     const fetchUsers = async () => {
       try {
         const res = await apiClient.get("/api/admin/users");
-        if (res.data.status_code) {
+        if (res.data.status_code || res.data.success) {
           setUsers(res.data.users || []);
         }
       } catch (err: any) {
@@ -346,7 +346,7 @@ export default function AdminAddBalancePage() {
     setCoinBalances([]);
     try {
       const res = await apiClient.get(`/api/admin/users/${user.id}/coins`);
-      if (res.data.status_code) {
+      if (res.data.status_code || res.data.success) {
         setCoinBalances(res.data.coins || []);
       }
     } catch (err: any) {
@@ -366,15 +366,25 @@ export default function AdminAddBalancePage() {
         coin_id: coinId,
         balance: newCoinBalance,
       });
-      if (res.data.status_code) {
+
+      if (res.data.status_code || res.data.success) {
         toast.success("Coin balance successfully updated!");
         setCoinBalances((prev) =>
           prev.map((c) => (c.coin_id === coinId ? { ...c, balance: newCoinBalance } : c))
         );
+      } else {
+        toast.error(res.data.message || "Failed to update balance.");
       }
     } catch (err: any) {
       console.error("Error updating user balance:", err);
-      toast.error(err.response?.data?.message || "Failed to update user balance.");
+      
+      // Extract exact backend error response if available
+      const serverErrorMessage = 
+        err.response?.data?.message || 
+        err.response?.data?.error || 
+        "Failed to update user balance.";
+        
+      toast.error(serverErrorMessage);
     } finally {
       setUpdatingCoins(null);
     }
