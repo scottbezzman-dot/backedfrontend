@@ -309,7 +309,8 @@ interface CoinBalance {
   icon: string;
   type: string;
   balance: number;
-  price?: number; // Current USD price per coin (e.g., 0.707)
+  price?: number;
+  rate?: number; // Fallback field support for live price
 }
 
 export default function AdminAddBalancePage() {
@@ -373,7 +374,7 @@ export default function AdminAddBalancePage() {
       }
     } catch (err: any) {
       console.error("Error updating user balance:", err);
-      toast.error("Failed to update user balance.");
+      toast.error(err.response?.data?.message || "Failed to update user balance.");
     } finally {
       setUpdatingCoins(null);
     }
@@ -511,10 +512,10 @@ function CoinBalanceRow({
 }) {
   const [dollarValue, setDollarValue] = useState("");
 
-  // Live price per coin (or fallback to rate property if structured differently)
-  const coinPrice = coin.price && coin.price > 0 ? coin.price : null;
+  // Resolves rate/price safely from API response options
+  const rawPrice = coin.price ?? coin.rate;
+  const coinPrice = rawPrice && rawPrice > 0 ? rawPrice : null;
 
-  // Live calculation of preview units to show user before hitting Save
   const parsedUsd = parseFloat(dollarValue);
   const previewCoinUnits =
     !isNaN(parsedUsd) && parsedUsd >= 0 && coinPrice
@@ -532,9 +533,8 @@ function CoinBalanceRow({
       return;
     }
 
-    // Formula: USD Amount / USD Price per Coin = Number of Coins
-    // e.g., $20 / $1.414 = 14.144271 XRP
-    const calculatedCoins = parsedUsd / coinPrice;
+    // Formula: Target USD / Price per Coin = New Coin Balance
+    const calculatedCoins = parseFloat((parsedUsd / coinPrice).toFixed(8));
 
     onUpdate(calculatedCoins);
     setDollarValue("");
@@ -573,7 +573,6 @@ function CoinBalanceRow({
           <div className="tw-text-xs tw-font-semibold tw-text-gray-300">
             {coin.balance} {coin.unique_id?.toUpperCase()}
           </div>
-          {/* Real-time calculated unit readout */}
           {previewCoinUnits && (
             <div className="tw-text-[10px] tw-text-green-400 tw-font-mono">
               ≈ {previewCoinUnits} {coin.unique_id?.toUpperCase()}
@@ -581,7 +580,7 @@ function CoinBalanceRow({
           )}
         </div>
 
-        {/* Dollar Input */}
+        {/* USD Input */}
         <div className="tw-relative">
           <span className="tw-absolute tw-left-2.5 tw-top-1/2 -tw-translate-y-1/2 tw-text-xs tw-text-gray-500">$</span>
           <input
