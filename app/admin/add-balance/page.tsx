@@ -358,37 +358,42 @@ export default function AdminAddBalancePage() {
     }
   };
 
-  const handleUpdateBalance = async (coinId: number, newCoinBalance: number) => {
-    if (!selectedUser) return;
-    setUpdatingCoins(coinId);
-    try {
-      const res = await apiClient.post(`/api/admin/users/${selectedUser.id}/balance`, {
-        coin_id: coinId,
-        balance: newCoinBalance,
-      });
+  const handleUpdateBalance = async (coinId: number, usdAmount: number) => {
+  if (!selectedUser) return;
+  setUpdatingCoins(coinId);
+  try {
+    const res = await apiClient.post(`/api/admin/users/${selectedUser.id}/balance`, {
+      coin_id: coinId,
+      usdAmount: usdAmount
+    });
 
-      if (res.data.status_code || res.data.success) {
-        toast.success("Coin balance successfully updated!");
+    if (res.data.status_code || res.data.success) {
+      toast.success("Coin balance successfully updated!");
+      // Calculate the actual coin quantity for display
+      const coin = coinBalances.find(c => c.coin_id === coinId);
+      const coinPrice = coin?.price ?? coin?.rate;
+      if (coinPrice) {
+        const calculatedBalance = usdAmount / coinPrice;
         setCoinBalances((prev) =>
-          prev.map((c) => (c.coin_id === coinId ? { ...c, balance: newCoinBalance } : c))
+          prev.map((c) => (c.coin_id === coinId ? { ...c, balance: calculatedBalance } : c))
         );
-      } else {
-        toast.error(res.data.message || "Failed to update balance.");
       }
-    } catch (err: any) {
-      console.error("Error updating user balance:", err);
-      
-      // Extract exact backend error response if available
-      const serverErrorMessage = 
-        err.response?.data?.message || 
-        err.response?.data?.error || 
-        "Failed to update user balance.";
-        
-      toast.error(serverErrorMessage);
-    } finally {
-      setUpdatingCoins(null);
+    } else {
+      toast.error(res.data.message || "Failed to update balance.");
     }
-  };
+  } catch (err: any) {
+    console.error("Error updating user balance:", err);
+    
+    const serverErrorMessage = 
+      err.response?.data?.message || 
+      err.response?.data?.error || 
+      "Failed to update user balance.";
+      
+    toast.error(serverErrorMessage);
+  } finally {
+    setUpdatingCoins(null);
+  }
+};
 
   if (loading) {
     return (
