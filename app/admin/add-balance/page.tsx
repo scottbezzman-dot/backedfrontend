@@ -369,12 +369,12 @@ export default function AdminAddBalancePage() {
 
     if (res.data.status_code || res.data.success) {
       toast.success("Coin balance successfully updated!");
-      const coin = coinBalances.find((c) => c.coin_id === coinId);
-      const coinPrice = Number(coin?.price ?? coin?.rate);
-      const updatedBalance = usdAmount / coinPrice;
-      setCoinBalances((prev) =>
-        prev.map((c) => (c.coin_id === coinId ? { ...c, balance: updatedBalance } : c))
-      );
+      const updatedQuantity = Number(res.data.data?.quantity);
+      if (Number.isFinite(updatedQuantity)) {
+        setCoinBalances((prev) =>
+          prev.map((c) => (c.coin_id === coinId ? { ...c, balance: updatedQuantity } : c))
+        );
+      }
     } else {
       toast.error(res.data.message || "Failed to update balance.");
     }
@@ -541,12 +541,7 @@ function CoinBalanceRow({
       return;
     }
 
-    if (!coinPrice) {
-      toast.error(`Price unavailable for ${coin.name}. Check backend price configuration.`);
-      return;
-    }
-
-    // The backend accepts the target USD amount and performs the conversion.
+    // The backend owns price lookup and USD-to-coin conversion.
     onUpdate(parsedUsd);
     setDollarValue("");
   };
