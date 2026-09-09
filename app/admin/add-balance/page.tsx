@@ -491,7 +491,7 @@ export default function AdminAddBalancePage() {
                       key={coin.coin_id}
                       coin={coin}
                       isUpdating={updatingCoins === coin.coin_id}
-                      onUpdate={(newCoinVal) => handleUpdateBalance(coin.coin_id, newCoinVal)}
+                      onUpdate={(usdAmount) => handleUpdateBalance(coin.coin_id, usdAmount)}
                     />
                   ))}
                 </div>
@@ -548,10 +548,8 @@ function CoinBalanceRow({
       return;
     }
 
-    // Formula: Target USD / Price per Coin = New Coin Balance
-    const calculatedCoins = parseFloat((parsedUsd / coinPrice).toFixed(8));
-
-    onUpdate(calculatedCoins);
+    // Pass the target USD amount to the parent; conversion is only for the local display.
+    onUpdate(parsedUsd);
     setDollarValue("");
   };
 
