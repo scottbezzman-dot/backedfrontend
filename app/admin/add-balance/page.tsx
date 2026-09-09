@@ -347,7 +347,12 @@ export default function AdminAddBalancePage() {
     try {
       const res = await apiClient.get(`/api/admin/users/${user.id}/coins`);
       if (res.data.status_code || res.data.success) {
-        setCoinBalances(res.data.coins || []);
+        const uniqueCoins: CoinBalance[] = Array.from(
+          new Map<number, CoinBalance>(
+            (res.data.coins || []).map((coin: CoinBalance) => [coin.coin_id, coin])
+          ).values()
+        );
+        setCoinBalances(uniqueCoins);
       }
     } catch (err: any) {
       console.error("Error loading user coins:", err);
