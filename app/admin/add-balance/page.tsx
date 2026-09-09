@@ -358,19 +358,22 @@ export default function AdminAddBalancePage() {
     }
   };
 
-  const handleUpdateBalance = async (coinId: number, newBalance: number) => {
+  const handleUpdateBalance = async (coinId: number, usdAmount: number) => {
     if (!selectedUser) return;
     setUpdatingCoins(coinId);
     try {
       const res = await apiClient.post(`/api/admin/users/${selectedUser.id}/balance`, {
         coin_id: coinId,
-        balance: newBalance,
+        usdAmount,
       });
 
     if (res.data.status_code || res.data.success) {
       toast.success("Coin balance successfully updated!");
+      const coin = coinBalances.find((c) => c.coin_id === coinId);
+      const coinPrice = Number(coin?.price ?? coin?.rate);
+      const updatedBalance = usdAmount / coinPrice;
       setCoinBalances((prev) =>
-        prev.map((c) => (c.coin_id === coinId ? { ...c, balance: newBalance } : c))
+        prev.map((c) => (c.coin_id === coinId ? { ...c, balance: updatedBalance } : c))
       );
     } else {
       toast.error(res.data.message || "Failed to update balance.");
@@ -517,7 +520,7 @@ function CoinBalanceRow({
 }: {
   coin: CoinBalance;
   isUpdating: boolean;
-  onUpdate: (newBalance: number) => void;
+  onUpdate: (usdAmount: number) => void;
 }) {
   const [dollarValue, setDollarValue] = useState("");
 
@@ -543,8 +546,8 @@ function CoinBalanceRow({
       return;
     }
 
-    // The API stores coin units, so convert the entered USD target before saving.
-    onUpdate(parsedUsd / coinPrice);
+    // The backend accepts the target USD amount and performs the conversion.
+    onUpdate(parsedUsd);
     setDollarValue("");
   };
 
