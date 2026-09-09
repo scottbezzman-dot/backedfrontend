@@ -358,26 +358,20 @@ export default function AdminAddBalancePage() {
     }
   };
 
-  const handleUpdateBalance = async (coinId: number, usdAmount: number) => {
-  if (!selectedUser) return;
-  setUpdatingCoins(coinId);
-  try {
-    const res = await apiClient.post(`/api/admin/users/${selectedUser.id}/balance`, {
-      coin_id: coinId,
-      usdAmount: usdAmount
-    });
+  const handleUpdateBalance = async (coinId: number, newBalance: number) => {
+    if (!selectedUser) return;
+    setUpdatingCoins(coinId);
+    try {
+      const res = await apiClient.post(`/api/admin/users/${selectedUser.id}/balance`, {
+        coin_id: coinId,
+        balance: newBalance,
+      });
 
     if (res.data.status_code || res.data.success) {
       toast.success("Coin balance successfully updated!");
-      // Calculate the actual coin quantity for display
-      const coin = coinBalances.find(c => c.coin_id === coinId);
-      const coinPrice = coin?.price ?? coin?.rate;
-      if (coinPrice) {
-        const calculatedBalance = usdAmount / coinPrice;
-        setCoinBalances((prev) =>
-          prev.map((c) => (c.coin_id === coinId ? { ...c, balance: calculatedBalance } : c))
-        );
-      }
+      setCoinBalances((prev) =>
+        prev.map((c) => (c.coin_id === coinId ? { ...c, balance: newBalance } : c))
+      );
     } else {
       toast.error(res.data.message || "Failed to update balance.");
     }
@@ -523,13 +517,14 @@ function CoinBalanceRow({
 }: {
   coin: CoinBalance;
   isUpdating: boolean;
-  onUpdate: (newCoinVal: number) => void;
+  onUpdate: (newBalance: number) => void;
 }) {
   const [dollarValue, setDollarValue] = useState("");
 
   // Resolves rate/price safely from API response options
   const rawPrice = coin.price ?? coin.rate;
-  const coinPrice = rawPrice && rawPrice > 0 ? rawPrice : null;
+  const numericPrice = Number(rawPrice);
+  const coinPrice = Number.isFinite(numericPrice) && numericPrice > 0 ? numericPrice : null;
 
   const parsedUsd = parseFloat(dollarValue);
   const previewCoinUnits =
@@ -548,8 +543,8 @@ function CoinBalanceRow({
       return;
     }
 
-    // Pass the target USD amount to the parent; conversion is only for the local display.
-    onUpdate(parsedUsd);
+    // The API stores coin units, so convert the entered USD target before saving.
+    onUpdate(parsedUsd / coinPrice);
     setDollarValue("");
   };
 
@@ -609,7 +604,7 @@ function CoinBalanceRow({
 
         <button
           onClick={handleSave}
-          disabled={isUpdating || !coinPrice}
+          disabled={isUpdating}
           className="tw-bg-green-600 hover:tw-bg-green-500 disabled:tw-bg-gray-800 disabled:tw-text-gray-500 tw-text-white tw-text-[11px] tw-font-bold tw-px-3.5 tw-py-2 tw-rounded-xl tw-transition tw-shadow-sm"
         >
           {isUpdating ? "..." : "Save"}
