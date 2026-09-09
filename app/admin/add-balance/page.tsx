@@ -323,7 +323,18 @@ export default function AdminAddBalancePage() {
   const [updatingCoins, setUpdatingCoins] = useState<number | null>(null);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    if (!selectedUser) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedUser(null);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [selectedUser]);
+
+  useEffect(() => {
+  const fetchUsers = async () => {
       try {
         const res = await apiClient.get("/api/admin/users");
         if (res.data.status_code || res.data.success) {
@@ -461,33 +472,50 @@ export default function AdminAddBalancePage() {
         </div>
       </div>
 
-      {/* Edit Balance Modal Backdrop */}
       {selectedUser && (
-        <div className="tw-fixed tw-inset-0 tw-z-50 tw-bg-black/60 tw-backdrop-blur-sm tw-flex tw-justify-center tw-items-center tw-p-4">
-          <div className="tw-w-full tw-max-w-xl tw-bg-[#161b22] tw-border tw-border-solid tw-border-gray-800 tw-rounded-2xl tw-overflow-hidden tw-shadow-2xl tw-animate-zoom-in">
-            {/* Modal Header */}
-            <div className="tw-px-6 tw-py-4 tw-border-b tw-border-solid tw-border-gray-800 tw-flex tw-justify-between tw-items-center">
-              <div>
-                <h3 className="tw-text-base tw-font-bold tw-text-white">Balances for: {selectedUser.name}</h3>
-                <p className="tw-text-xs tw-text-gray-400 tw-mt-0.5">{selectedUser.email}</p>
+        <div
+          className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black/75 tw-p-3 tw-backdrop-blur-sm sm:tw-p-6"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setSelectedUser(null);
+          }}
+        >
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="balance-modal-title"
+            className="tw-flex tw-max-h-[min(760px,calc(100vh-24px))] tw-w-full tw-max-w-3xl tw-flex-col tw-overflow-hidden tw-rounded-2xl tw-border tw-border-solid tw-border-gray-700 tw-bg-[#11161d] tw-shadow-2xl sm:tw-max-h-[calc(100vh-48px)]"
+          >
+            <header className="tw-flex tw-items-start tw-justify-between tw-gap-4 tw-border-b tw-border-solid tw-border-gray-800 tw-bg-[#171d26] tw-px-4 tw-py-4 sm:tw-px-6">
+              <div className="tw-min-w-0">
+                <div className="tw-mb-2 tw-flex tw-items-center tw-gap-2">
+                  <span className="tw-rounded-full tw-bg-green-500/10 tw-px-2 tw-py-1 tw-text-[10px] tw-font-bold tw-uppercase tw-tracking-wider tw-text-green-400">Wallet manager</span>
+                  <span className="tw-text-[10px] tw-text-gray-500">{coinBalances.length} assets</span>
+                </div>
+                <h2 id="balance-modal-title" className="tw-truncate tw-text-lg tw-font-bold tw-text-white sm:tw-text-xl">{selectedUser.name}</h2>
+                <p className="tw-mt-1 tw-truncate tw-text-xs tw-text-gray-400">{selectedUser.email}</p>
               </div>
               <button
+                type="button"
+                aria-label="Close wallet manager"
                 onClick={() => setSelectedUser(null)}
-                className="tw-w-8 tw-h-8 tw-rounded-xl tw-bg-gray-800/40 hover:tw-bg-gray-800 tw-text-gray-400 hover:tw-text-white tw-flex tw-items-center tw-justify-center tw-transition"
+                className="tw-flex tw-h-9 tw-w-9 tw-shrink-0 tw-items-center tw-justify-center tw-rounded-lg tw-border tw-border-solid tw-border-gray-700 tw-bg-[#0d1117] tw-text-lg tw-leading-none tw-text-gray-400 tw-transition hover:tw-border-gray-500 hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-green-500"
               >
-                ✕
+                <span aria-hidden="true">×</span>
               </button>
+            </header>
+
+            <div className="tw-border-b tw-border-solid tw-border-gray-800 tw-bg-[#0d1117]/60 tw-px-4 tw-py-3 sm:tw-px-6">
+              <p className="tw-text-xs tw-leading-5 tw-text-gray-400"><span className="tw-font-semibold tw-text-gray-200">Set a USD target</span> for any asset below. The backend converts it using the current market price.</p>
             </div>
 
-            {/* Modal Body */}
-            <div className="tw-p-6 tw-max-h-[60vh] tw-overflow-y-auto tw-space-y-4">
+            <div className="tw-min-h-0 tw-overflow-y-auto tw-p-3 sm:tw-p-5">
               {loadingCoins ? (
-                <div className="tw-py-12 tw-text-center tw-space-y-3">
-                  <div className="tw-w-8 tw-h-8 tw-border-4 tw-border-green-500 tw-border-t-transparent tw-rounded-full tw-animate-spin tw-mx-auto"></div>
+                <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-3 tw-py-16">
+                  <div className="tw-h-8 tw-w-8 tw-animate-spin tw-rounded-full tw-border-2 tw-border-gray-700 tw-border-t-green-400" />
                   <p className="tw-text-xs tw-text-gray-400">Loading wallet balances...</p>
                 </div>
               ) : coinBalances.length > 0 ? (
-                <div className="tw-divide-y tw-divide-solid tw-divide-gray-800/50">
+                <div className="tw-space-y-2">
                   {coinBalances.map((coin) => (
                     <CoinBalanceRow
                       key={coin.coin_id}
@@ -498,20 +526,24 @@ export default function AdminAddBalancePage() {
                   ))}
                 </div>
               ) : (
-                <p className="tw-text-center tw-text-gray-500 tw-text-xs tw-py-6">No support assets available.</p>
+                <div className="tw-rounded-xl tw-border tw-border-dashed tw-border-gray-700 tw-px-6 tw-py-12 tw-text-center">
+                  <p className="tw-text-sm tw-font-semibold tw-text-gray-300">No supported assets available</p>
+                  <p className="tw-mt-1 tw-text-xs tw-text-gray-500">Add a supported coin to this wallet to manage its balance.</p>
+                </div>
               )}
             </div>
 
-            {/* Modal Footer */}
-            <div className="tw-px-6 tw-py-4 tw-border-t tw-border-solid tw-border-gray-800 tw-bg-black/10 tw-flex tw-justify-end">
+            <footer className="tw-flex tw-items-center tw-justify-between tw-gap-3 tw-border-t tw-border-solid tw-border-gray-800 tw-bg-[#171d26] tw-px-4 tw-py-3 sm:tw-px-6">
+              <p className="tw-hidden tw-text-[11px] tw-text-gray-500 sm:tw-block">Changes are saved per asset.</p>
               <button
+                type="button"
                 onClick={() => setSelectedUser(null)}
-                className="tw-bg-[#0d1117] hover:tw-bg-[#080b0f] tw-border tw-border-solid tw-border-gray-800 tw-rounded-xl tw-px-5 tw-py-2 tw-text-xs tw-font-bold tw-text-gray-300 tw-transition"
+                className="tw-ml-auto tw-rounded-lg tw-border tw-border-solid tw-border-gray-700 tw-bg-[#0d1117] tw-px-4 tw-py-2 tw-text-xs tw-font-bold tw-text-gray-300 tw-transition hover:tw-border-gray-500 hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-green-500"
               >
-                Close Manager
+                Done
               </button>
-            </div>
-          </div>
+            </footer>
+          </section>
         </div>
       )}
     </div>
@@ -552,67 +584,66 @@ function CoinBalanceRow({
   };
 
   return (
-    <div className="tw-py-3.5 tw-flex tw-items-center tw-justify-between tw-gap-4">
-      {/* Coin Icon & Info */}
-      <div className="tw-flex tw-items-center tw-gap-3">
-        <div className="tw-w-8 tw-h-8 tw-bg-[#0d1117] tw-border tw-border-solid tw-border-gray-800 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-overflow-hidden">
-          {coin.icon ? (
-            <img
-              src={`${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000"}${coin.icon}`}
-              alt={coin.name}
-              className="tw-w-6 tw-h-6 tw-object-contain"
-              onError={(e) => {
-                (e.target as HTMLElement).style.display = "none";
-              }}
-            />
-          ) : (
-            <span className="tw-text-[10px] tw-font-bold tw-text-gray-400">{coin.name}</span>
-          )}
-        </div>
-        <div>
-          <div className="tw-text-xs tw-font-bold tw-text-white">{coin.name}</div>
-          <div className="tw-text-[10px] tw-text-gray-500 tw-capitalize">
-            {coin.type} {coinPrice ? `• $${coinPrice.toLocaleString()} / unit` : "• Price Unavailable"}
+    <article className="tw-rounded-xl tw-border tw-border-solid tw-border-gray-800 tw-bg-[#171d26] tw-p-3 tw-transition hover:tw-border-gray-700 sm:tw-p-4">
+      <div className="tw-flex tw-flex-col tw-gap-4 lg:tw-flex-row lg:tw-items-center lg:tw-justify-between">
+        <div className="tw-flex tw-min-w-0 tw-items-center tw-gap-3">
+          <div className="tw-flex tw-h-10 tw-w-10 tw-shrink-0 tw-items-center tw-justify-center tw-overflow-hidden tw-rounded-xl tw-border tw-border-solid tw-border-gray-700 tw-bg-[#0d1117]">
+            {coin.icon ? (
+              <img
+                src={`${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000"}${coin.icon}`}
+                alt={coin.name}
+                className="tw-h-7 tw-w-7 tw-object-contain"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = "none";
+                }}
+              />
+            ) : (
+              <span className="tw-text-[10px] tw-font-bold tw-text-gray-400">{coin.name}</span>
+            )}
           </div>
-        </div>
-      </div>
-
-      {/* Input & Controls */}
-      <div className="tw-flex tw-justify-between tw-items-center tw-gap-2">
-        <div className="tw-text-right tw-mr-1">
-          <div className="tw-text-[10px] tw-text-gray-500 tw-text-nowrap">Current Balance</div>
-          <div className="tw-text-xs tw-font-semibold tw-text-gray-300">
-            {coin.balance} {coin.unique_id?.toUpperCase()}
-          </div>
-          {previewCoinUnits && (
-            <div className="tw-text-[10px] tw-text-green-400 tw-font-mono">
-              ≈ {previewCoinUnits} {coin.unique_id?.toUpperCase()}
+          <div className="tw-min-w-0">
+            <div className="tw-flex tw-items-center tw-gap-2">
+              <span className="tw-truncate tw-text-sm tw-font-bold tw-text-white">{coin.name}</span>
+              <span className="tw-rounded tw-bg-gray-800 tw-px-1.5 tw-py-0.5 tw-text-[9px] tw-font-bold tw-uppercase tw-text-gray-400">{coin.unique_id}</span>
             </div>
-          )}
+            <div className="tw-mt-1 tw-text-[11px] tw-text-gray-500 tw-capitalize">
+              {coin.type || "Digital asset"} <span className={coinPrice ? "tw-text-gray-600" : "tw-text-amber-400"}>{coinPrice ? `• $${coinPrice.toLocaleString()} / unit` : "• Backend price lookup"}</span>
+            </div>
+          </div>
         </div>
 
-        {/* USD Input */}
-        <div className="tw-relative">
-          <span className="tw-absolute tw-left-2.5 tw-top-1/2 -tw-translate-y-1/2 tw-text-xs tw-text-gray-500">$</span>
-          <input
-            type="number"
-            step="any"
-            min="0"
-            value={dollarValue}
-            onChange={(e) => setDollarValue(e.target.value)}
-            className="tw-w-24 tw-bg-[#0d1117] tw-border tw-border-solid tw-border-gray-800 focus:tw-border-green-500 tw-rounded-xl tw-pl-6 tw-pr-2 tw-py-1.5 tw-text-xs tw-text-white focus:tw-outline-none tw-transition"
-            placeholder="USD ($)"
-          />
+        <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-items-end lg:tw-justify-end">
+          <div className="tw-rounded-lg tw-bg-[#0d1117] tw-px-3 tw-py-2 sm:tw-min-w-32">
+            <div className="tw-text-[10px] tw-font-semibold tw-uppercase tw-tracking-wide tw-text-gray-500">Current balance</div>
+            <div className="tw-mt-1 tw-text-xs tw-font-semibold tw-text-gray-200">{coin.balance} {coin.unique_id?.toUpperCase()}</div>
+            {previewCoinUnits && <div className="tw-mt-0.5 tw-text-[10px] tw-font-mono tw-text-green-400">Preview ≈ {previewCoinUnits}</div>}
+          </div>
+          <label className="tw-flex tw-flex-1 tw-flex-col tw-gap-1 sm:tw-w-32">
+            <span className="tw-text-[10px] tw-font-semibold tw-uppercase tw-tracking-wide tw-text-gray-500">New USD target</span>
+            <div className="tw-relative">
+              <span className="tw-pointer-events-none tw-absolute tw-left-3 tw-top-1/2 -tw-translate-y-1/2 tw-text-xs tw-text-gray-500">$</span>
+              <input
+                aria-label={`New USD target for ${coin.name}`}
+                type="number"
+                step="any"
+                min="0"
+                value={dollarValue}
+                onChange={(e) => setDollarValue(e.target.value)}
+                className="tw-w-full tw-rounded-lg tw-border tw-border-solid tw-border-gray-700 tw-bg-[#0d1117] tw-py-2 tw-pl-7 tw-pr-2 tw-text-xs tw-text-white tw-transition placeholder:tw-text-gray-600 focus:tw-border-green-500 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-green-500/20"
+                placeholder="0.00"
+              />
+            </div>
+          </label>
+          <button
+            type="button"
+            onClick={handleSave}
+            disabled={isUpdating}
+            className="tw-h-9 tw-rounded-lg tw-bg-green-600 tw-px-4 tw-text-xs tw-font-bold tw-text-white tw-transition hover:tw-bg-green-500 disabled:tw-cursor-not-allowed disabled:tw-bg-gray-800 disabled:tw-text-gray-500 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-green-500"
+          >
+            {isUpdating ? "Saving..." : "Save"}
+          </button>
         </div>
-
-        <button
-          onClick={handleSave}
-          disabled={isUpdating}
-          className="tw-bg-green-600 hover:tw-bg-green-500 disabled:tw-bg-gray-800 disabled:tw-text-gray-500 tw-text-white tw-text-[11px] tw-font-bold tw-px-3.5 tw-py-2 tw-rounded-xl tw-transition tw-shadow-sm"
-        >
-          {isUpdating ? "..." : "Save"}
-        </button>
       </div>
-    </div>
+    </article>
   );
 }
